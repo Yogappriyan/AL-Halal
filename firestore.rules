@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() &&
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.active == true;
+    }
+
+    // Admins collection
+    match /admins/{uid} {
+      allow get: if isSignedIn() && (request.auth.uid == uid || isAdmin());
+      allow list: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Products collection
+    match /products/{productId} {
+      allow get: if isValidId(productId) && (
+        resource.data.status in ['active', 'out_of_stock'] || isAdmin()
+      );
+      allow list: if (
+        resource.data.status in ['active', 'out_of_stock'] || isAdmin()
+      );
+      allow create, update, delete: if isValidId(productId) && isAdmin();
+    }
+
+    // Categories
+    match /categories/{categoryId} {
+      allow get, list: if isValidId(categoryId) && (resource.data.active == true || isAdmin());
+      allow write: if isValidId(categoryId) && isAdmin();
+    }
+
+    // Banners
+    match /banners/{bannerId} {
+      allow get, list: if isValidId(bannerId) && (resource.data.active == true || isAdmin());
+      allow write: if isValidId(bannerId) && isAdmin();
+    }
+
+    // Offers
+    match /offers/{offerId} {
+      allow get, list: if isValidId(offerId) && (resource.data.active == true || isAdmin());
+      allow write: if isValidId(offerId) && isAdmin();
+    }
+
+    // Reviews
+    match /reviews/{reviewId} {
+      allow get, list: if isValidId(reviewId) && (resource.data.approved == true || isAdmin());
+      allow create: if isValidId(reviewId) && (
+        isSignedIn() || request.resource.data.customerName is string
+      );
+      allow update, delete: if isValidId(reviewId) && isAdmin();
+    }
+
+    // Settings
+    match /settings/{settingDoc} {
+      allow get, list: if isValidId(settingDoc);
+      allow write: if isValidId(settingDoc) && isAdmin();
+    }
+
+    // Orders collection
+    match /orders/{orderId} {
+      allow get: if isValidId(orderId) && (
+        (isSignedIn() && resource.data.customerId == request.auth.uid) || isAdmin()
+      );
+      allow list: if (
+        (isSignedIn() && resource.data.customerId == request.auth.uid) || isAdmin()
+      );
+      allow create: if isValidId(orderId) && (
+        request.resource.data.keys().hasAll(['customerName', 'phone', 'items', 'totalAmount', 'orderStatus']) &&
+        request.resource.data.orderStatus == 'Pending'
+      );
+      allow update: if isValidId(orderId) && isAdmin();
+      allow delete: if isValidId(orderId) && isAdmin();
+    }
+  }
+}

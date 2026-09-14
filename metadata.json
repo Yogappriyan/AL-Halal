@@ -1,0 +1,6 @@
+{
+  "name": "AL-HALAL A FOOT STATION",
+  "description": "Premium showroom offering authentic footwear, branded luxury watches, and designer sunglasses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Footwear item available in AL-HALAL A FOOT STATION",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "slug": { "type": "string", "maxLength": 250 },
+        "brand": { "type": "string", "maxLength": 100 },
+        "category": { "type": "string", "maxLength": 100 },
+        "gender": { "type": "string", "enum": ["Men", "Women", "Unisex", "Kids"] },
+        "description": { "type": "string", "maxLength": 4000 },
+        "shortDescription": { "type": "string", "maxLength": 500 },
+        "price": { "type": "number" },
+        "salePrice": { "type": "number" },
+        "discountPercentage": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "images": { "type": "array" },
+        "thumbnail": { "type": "string", "maxLength": 1000 },
+        "variants": { "type": "array" },
+        "sizes": { "type": "array" },
+        "colors": { "type": "array" },
+        "stock": { "type": "number" },
+        "sizeStock": { "type": "object" },
+        "sizeSystem": { "type": "string", "maxLength": 20 },
+        "material": { "type": "string", "maxLength": 200 },
+        "style": { "type": "string", "maxLength": 200 },
+        "sku": { "type": "string", "maxLength": 50 },
+        "featured": { "type": "boolean" },
+        "newArrival": { "type": "boolean" },
+        "bestSeller": { "type": "boolean" },
+        "offer": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["active", "draft", "inactive", "out_of_stock"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "brand", "category", "price", "stock", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer footwear purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerId": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 200 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "email": { "type": "string", "maxLength": 200 },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "shippingFee": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "paymentMethod": { "type": "string", "enum": ["cod", "online"] },
+        "paymentStatus": { "type": "string", "enum": ["pending", "paid", "failed"] },
+        "orderStatus": { "type": "string", "enum": ["Pending", "Confirmed", "Packed", "Shipped", "Out for Delivery", "Delivered", "Cancelled"] },
+        "shippingAddress": { "type": "object" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "customerName", "phone", "items", "totalAmount", "orderStatus"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Authorized store administrator document",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 200 },
+        "name": { "type": "string", "maxLength": 200 },
+        "role": { "type": "string", "enum": ["admin"] },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "role", "active"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Footwear category taxonomy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "slug": { "type": "string", "maxLength": 150 },
+        "image": { "type": "string", "maxLength": 1000 },
+        "description": { "type": "string", "maxLength": 500 },
+        "active": { "type": "boolean" },
+        "order": { "type": "number" }
+      },
+      "required": ["id", "name", "slug", "active"]
+    },
+    "BusinessSettings": {
+      "title": "BusinessSettings",
+      "description": "Store configuration and contact numbers",
+      "type": "object",
+      "properties": {
+        "businessName": { "type": "string", "maxLength": 200 },
+        "phone1": { "type": "string", "maxLength": 50 },
+        "phone2": { "type": "string", "maxLength": 50 },
+        "whatsapp": { "type": "string", "maxLength": 50 },
+        "address": { "type": "string", "maxLength": 500 },
+        "businessHours": { "type": "string", "maxLength": 200 },
+        "instagram": { "type": "string", "maxLength": 100 },
+        "youtube": { "type": "string", "maxLength": 500 },
+        "announcementText": { "type": "string", "maxLength": 500 },
+        "heroTitle": { "type": "string", "maxLength": 200 },
+        "heroSubtitle": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["businessName", "phone1", "whatsapp"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Footwear items catalogue"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Store customer orders and statuses"
+    },
+    "/admins/{uid}": {
+      "schema": "Admin",
+      "description": "Admin authorization mapping"
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Product categories"
+    },
+    "/settings/business": {
+      "schema": "BusinessSettings",
+      "description": "Store business contact and text configuration"
+    }
+  }
+}
