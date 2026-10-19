@@ -57,11 +57,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ navigateTo }
               {/* Category Details at Bottom */}
               <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 flex flex-col justify-end text-white z-10">
                 <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase mb-1">
-                  {category.slug.includes('watch')
-                    ? 'Luxury Timepieces'
-                    : category.slug.includes('sunglass')
-                    ? 'Designer Eyewear'
-                    : 'Footwear Collection'}
+                  Footwear Collection
                 </span>
                 <div className="flex items-center justify-between">
                   <h3 className="text-base sm:text-lg font-black tracking-tight uppercase group-hover:translate-x-1 transition-transform duration-300">

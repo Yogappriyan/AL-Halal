@@ -33,6 +33,7 @@ export const CartPage: React.FC<CartPageProps> = ({ navigateTo }) => {
     clearCart,
     products,
     showToast,
+    settings,
   } = useStore();
 
   const [couponCode, setCouponCode] = useState('');
@@ -45,8 +46,8 @@ export const CartPage: React.FC<CartPageProps> = ({ navigateTo }) => {
   };
 
   const handleWhatsAppOrder = () => {
-    const msg = generateCartWhatsAppMessage(cart, cartTotal);
-    openWhatsApp(msg);
+    const msg = generateCartWhatsAppMessage(cart, cartTotal, settings.businessName || 'ITALIA SHOES');
+    openWhatsApp(msg, settings.whatsapp);
   };
 
   // Inventory validation: check if any cart item exceeds live stock
@@ -252,7 +253,7 @@ export const CartPage: React.FC<CartPageProps> = ({ navigateTo }) => {
                 <form onSubmit={handleApplyCoupon} className="flex gap-2">
                   <input
                     type="text"
-                    placeholder="Coupon (e.g. HALAL100)"
+                    placeholder="Coupon code"
                     value={couponCode}
                     onChange={(e) => setCouponCode(e.target.value)}
                     className="flex-1 px-3 py-2 bg-neutral-50 border border-neutral-200 rounded-xl text-xs uppercase font-semibold focus:outline-none focus:ring-2 focus:ring-black"
@@ -316,14 +317,16 @@ export const CartPage: React.FC<CartPageProps> = ({ navigateTo }) => {
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <button
-                type="button"
-                onClick={handleWhatsAppOrder}
-                className="w-full py-3 bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-sm"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Reserve on WhatsApp (+91 9655187000)</span>
-              </button>
+              {settings.whatsapp && (
+                <button
+                  type="button"
+                  onClick={handleWhatsAppOrder}
+                  className="w-full py-3 bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Reserve on WhatsApp</span>
+                </button>
+              )}
             </div>
 
             <div className="pt-2 text-center">

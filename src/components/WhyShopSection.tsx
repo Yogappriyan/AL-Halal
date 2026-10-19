@@ -1,27 +1,31 @@
 import React from 'react';
 import { Layers, Store, Headphones, ShoppingBag } from 'lucide-react';
+import { useStore } from '../context/StoreContext';
 
 export const WhyShopSection: React.FC = () => {
+  const { settings } = useStore();
+  const phone = settings.phone || '0431 402 0105';
+
   const cards = [
     {
       icon: Layers,
       title: 'WIDE FOOTWEAR COLLECTION',
-      desc: 'Explore multiple styles for everyday use including casuals, runners, clogs, and sandals.',
+      desc: "Explore men's, women's, sports running shoes, casual footwear, and comfortable sandals.",
     },
     {
       icon: Store,
-      title: 'SHOWROOM EXPERIENCE',
-      desc: 'Visit our physical showroom to inspect footwear build quality and try on sizes in person.',
+      title: 'IN-STORE SHOWROOM EXPERIENCE',
+      desc: 'Visit Kings Square Complex, Tiruchirappalli to check fit, try on sizes, and get personalized service.',
     },
     {
       icon: Headphones,
-      title: 'EASY CUSTOMER SUPPORT',
-      desc: 'Quick direct assistance on phone and WhatsApp at +91 9655187000 for size fitting or questions.',
+      title: 'DIRECT STORE HELPLINE',
+      desc: `Speak directly with our showroom staff at ${phone} for size confirmation and availability inquiries.`,
     },
     {
       icon: ShoppingBag,
-      title: 'CONVENIENT ONLINE SHOPPING',
-      desc: 'Browse catalog, reserve your size with live stock tracking, and enjoy seamless doorstep delivery.',
+      title: 'IN-STORE SHOPPING & DELIVERY',
+      desc: 'Enjoy convenient in-store shopping with immediate pickup or order online for direct delivery to your address.',
     },
   ];
 
@@ -33,7 +37,7 @@ export const WhyShopSection: React.FC = () => {
             Showroom Standards
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-black uppercase tracking-tight mt-1">
-            WHY SHOP WITH AL-HALAL
+            WHY SHOP WITH {settings.businessName || 'ITALIA SHOES'}
           </h2>
         </div>
 

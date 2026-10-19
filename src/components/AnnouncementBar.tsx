@@ -14,21 +14,24 @@ export const AnnouncementBar: React.FC = () => {
         <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap mx-auto sm:mx-0">
           <Sparkles className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
           <span className="tracking-wider uppercase text-[11px] sm:text-xs font-medium">
-            {settings.announcementText ||
-              'AL-HALAL A FOOT STATION • FOOTWEAR • STYLE • EVERYDAY COMFORT'}
+            {(settings.announcementText || 'ITALIA SHOES • SHOE STORE • IN-STORE SHOPPING & DELIVERY')
+              .replace(/•\s*[\u0B80-\u0BFF\s]+•/g, '•')
+              .replace(/[\u0B80-\u0BFF]+/g, '')
+              .replace(/\s+/g, ' ')
+              .trim()}
           </span>
         </div>
 
         <div className="hidden sm:flex items-center gap-4 text-neutral-300 text-[11px] tracking-wide">
           <a
-            href={`tel:${settings.phone1}`}
+            href={`tel:${settings.phone || settings.phone1 || '0431 402 0105'}`}
             className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
             <Phone className="w-3 h-3 text-neutral-400" />
-            <span>Store: {settings.phone1}</span>
+            <span>Store: {settings.phone || settings.phone1 || '0431 402 0105'}</span>
           </a>
           <span className="text-neutral-600">|</span>
-          <span className="text-neutral-400">Showroom Open 10 AM - 10 PM</span>
+          <span className="text-neutral-400">Open • Closes {settings.closingTime || '9:30 PM'}</span>
         </div>
       </div>
     </div>

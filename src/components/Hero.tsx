@@ -12,31 +12,31 @@ export const Hero: React.FC<HeroProps> = ({ navigateTo }) => {
 
   const heroShowcase = [
     {
-      id: 'prod-001',
+      id: 'prod-is-001',
       title: 'Urban Flex Low-Top',
       tag: 'Best Seller',
       color: 'Triple Black',
-      price: 1299,
-      originalPrice: 1899,
-      image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=80',
+      price: 1999,
+      originalPrice: 2499,
+      image: 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png',
     },
     {
-      id: 'prod-002',
+      id: 'prod-is-002',
       title: 'Air Sprint Pro Runner',
       tag: 'High Energy',
       color: 'Crimson Red',
-      price: 1699,
-      originalPrice: 2499,
-      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80',
+      price: 2499,
+      originalPrice: 3299,
+      image: 'https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png',
     },
     {
-      id: 'prod-005',
-      title: 'Cloud-Stride Foam Clog',
+      id: 'prod-is-003',
+      title: 'Heritage Venetian Loafer',
       tag: 'Trending Now',
-      color: 'Bone White',
-      price: 699,
-      originalPrice: 999,
-      image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=80',
+      color: 'Rich Tan',
+      price: 2299,
+      originalPrice: 2999,
+      image: 'https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png',
     },
   ];
 
@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ navigateTo }) => {
 
       {/* Large watermark text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-neutral-900/[0.03] font-black text-[12vw] tracking-tighter uppercase select-none pointer-events-none whitespace-nowrap">
-        AL-HALAL FOOTWEAR
+        ITALIA SHOES
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -68,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ navigateTo }) => {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black text-white text-xs font-bold tracking-wider uppercase shadow-sm"
             >
               <Flame className="w-3.5 h-3.5 text-amber-400" />
-              <span>Showroom Showcase • 2026 Collection</span>
+              <span>Showroom Showcase • Tiruchirappalli</span>
             </div>
 
             {/* Headline */}
@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ navigateTo }) => {
             >
               STEP INTO <br />
               <span className="text-neutral-500 underline decoration-black decoration-4 underline-offset-8">
-                YOUR STYLE
+                ITALIA STYLE
               </span>
             </h1>
 
@@ -87,9 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ navigateTo }) => {
               id="hero-description"
               className="text-base sm:text-lg text-neutral-600 max-w-xl font-normal leading-relaxed"
             >
-              Discover footwear for everyday comfort, street style and active lifestyles.
-              Handcrafted comfort, durable materials, and premium finishes straight from our
-              physical showroom shelves.
+              Quality footwear for everyday comfort and style. Explore our premium shoe collection or visit our showroom at Kings Square Complex, Thillai Nagar, Tennur, Tiruchirappalli.
             </p>
 
             {/* CTA Buttons */}

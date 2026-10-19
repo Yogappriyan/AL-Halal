@@ -141,7 +141,7 @@ export const MyOrdersPage: React.FC<MyOrdersPageProps> = ({ navigateTo }) => {
                         type="button"
                         onClick={() =>
                           openWhatsApp(
-                            `Hello AL-HALAL A FOOT STATION, can you please update me on Order #${order.orderNumber}?`,
+                            `Hello ${settings.businessName || 'ITALIA SHOES'}, can you please update me on Order #${order.orderNumber}?`,
                             settings.whatsapp
                           )
                         }

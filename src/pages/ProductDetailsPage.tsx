@@ -39,6 +39,7 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
     recentlyViewed,
     reviews,
     showToast,
+    settings,
   } = useStore();
 
   // Add to recently viewed on mount
@@ -121,8 +122,9 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
       color: selectedColor,
       size: selectedSize,
       sku: product.sku,
+      storeName: settings.businessName || 'ITALIA SHOES',
     });
-    openWhatsApp(msg);
+    openWhatsApp(msg, settings.whatsapp);
   };
 
   // Related products
@@ -198,8 +200,11 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
 
               {/* Large Shoe Photo with containment */}
               <img
-                src={currentImage}
+                src={currentImage || 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png'}
                 alt={product.name}
+                onError={(e) => {
+                  e.currentTarget.src = 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png';
+                }}
                 className="w-full h-full object-contain filter drop-shadow-xl transition-all duration-300"
                 referrerPolicy="no-referrer"
               />
@@ -252,6 +257,9 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
                     <img
                       src={img}
                       alt={`Thumbnail ${idx + 1}`}
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png';
+                      }}
                       className="w-full h-full object-contain"
                       referrerPolicy="no-referrer"
                     />
@@ -479,15 +487,24 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
                   Buy It Now
                 </button>
 
-                {/* Direct WhatsApp Order/Enquiry */}
-                <button
-                  type="button"
-                  onClick={handleWhatsAppEnquiry}
-                  className="w-full py-3 px-6 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-600 text-white hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 shadow-md"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Enquire on WhatsApp (+91 9655187000)</span>
-                </button>
+                {/* Direct WhatsApp Order/Enquiry or Call Helpline */}
+                {settings.whatsapp ? (
+                  <button
+                    type="button"
+                    onClick={handleWhatsAppEnquiry}
+                    className="w-full py-3 px-6 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-600 text-white hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 shadow-md"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Enquire on WhatsApp</span>
+                  </button>
+                ) : (
+                  <a
+                    href={`tel:${settings.phone || '04314020105'}`}
+                    className="w-full py-3 px-6 rounded-xl font-bold text-xs uppercase tracking-wider bg-neutral-800 text-white hover:bg-neutral-700 transition-all flex items-center justify-center gap-2 shadow-md"
+                  >
+                    <span>Call Store Helpline ({settings.phone || '0431 402 0105'})</span>
+                  </a>
+                )}
               </div>
 
               {/* Guarantees Box */}

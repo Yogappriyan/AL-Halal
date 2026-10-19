@@ -250,7 +250,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ navigateTo }) => {
                       type="text"
                       name="city"
                       required
-                      placeholder="e.g. Tirupattur"
+                      placeholder="e.g. Tiruchirappalli"
                       value={formData.city}
                       onChange={handleInputChange}
                       className="w-full px-4 py-2.5 bg-[#fafafa] border border-neutral-200 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-black focus:outline-none"
@@ -286,7 +286,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({ navigateTo }) => {
                       type="text"
                       name="pincode"
                       required
-                      placeholder="e.g. 635601"
+                      placeholder="e.g. 620018"
                       value={formData.pincode}
                       onChange={handleInputChange}
                       className="w-full px-4 py-2.5 bg-[#fafafa] border border-neutral-200 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-black focus:outline-none"

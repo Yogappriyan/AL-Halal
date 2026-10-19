@@ -103,7 +103,7 @@ export const AccountPage: React.FC<AccountPageProps> = ({ navigateTo }) => {
               {/* Showroom Visit Info */}
               <div className="bg-white p-6 rounded-3xl border border-neutral-200 shadow-sm space-y-4">
                 <h4 className="text-xs font-black uppercase tracking-wider text-black pb-2 border-b border-neutral-100">
-                  Your Primary Showroom Station
+                  {settings.businessName || 'ITALIA SHOES'} Showroom
                 </h4>
                 <div className="text-xs text-neutral-600 space-y-2">
                   <p className="flex items-start gap-2">
@@ -112,11 +112,11 @@ export const AccountPage: React.FC<AccountPageProps> = ({ navigateTo }) => {
                   </p>
                   <p className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-neutral-400 shrink-0" />
-                    <span>{settings.phone1} • {settings.phone2}</span>
+                    <span>{settings.phone || '0431 402 0105'}</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-neutral-400 shrink-0" />
-                    <span>{settings.businessHours}</span>
+                    <span>Open • Closes at {settings.closingTime || '9:30 PM'}</span>
                   </p>
                 </div>
               </div>
@@ -129,9 +129,11 @@ export const AccountPage: React.FC<AccountPageProps> = ({ navigateTo }) => {
             </div>
 
             <div>
-              <h2 className="text-xl font-black uppercase text-black">Sign in to AL-HALAL</h2>
+              <h2 className="text-xl font-black uppercase text-black">
+                Sign in to {settings.businessName || 'ITALIA SHOES'}
+              </h2>
               <p className="text-xs text-neutral-500 mt-1">
-                Access your orders, saved footwear wishlist, and streamlined showroom pickup.
+                Access your orders, saved footwear wishlist, and streamlined in-store or online shopping.
               </p>
             </div>
 

@@ -31,12 +31,12 @@ if (isFirebaseConfigured) {
     auth = getAuth(app);
     db = getFirestore(app);
     storage = getStorage(app);
-    console.log('[AL-HALAL] Firebase successfully initialized with Cloud backend.');
+    console.log('[ITALIA SHOES] Firebase successfully initialized with Cloud backend.');
   } catch (error) {
-    console.warn('[AL-HALAL] Firebase init error, falling back to client showroom mode:', error);
+    console.warn('[ITALIA SHOES] Firebase init error, falling back to client showroom mode:', error);
   }
 } else {
-  console.info('[AL-HALAL] Firebase running in Showroom Demo & LocalStore Mode. Configure real Firebase keys in Settings when ready.');
+  console.info('[ITALIA SHOES] Firebase running in Showroom Demo & LocalStore Mode. Configure real Firebase keys in Settings when ready.');
 }
 
 export const googleProvider = new GoogleAuthProvider();

@@ -24,7 +24,7 @@ export const OrderSuccessPage: React.FC<OrderSuccessPageProps> = ({ order, navig
 
   const handleWhatsAppUpdate = () => {
     openWhatsApp(
-      `Hello AL-HALAL A FOOT STATION! I placed order #${order.orderNumber} for ₹${order.total}. Could you confirm my order status?`,
+      `Hello ${settings.businessName || 'ITALIA SHOES'}! I placed order #${order.orderNumber} for ₹${order.total}. Could you confirm my order status?`,
       settings.whatsapp
     );
   };

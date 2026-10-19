@@ -189,16 +189,26 @@ export interface Review {
 
 export interface BusinessSettings {
   businessName: string;
-  tagline: string;
+  tamilName?: string;
+  businessType?: string;
+  phone?: string;
   phone1: string;
   phone2: string;
-  whatsapp: string;
   address: string;
+  rating?: number;
+  reviewCount?: number;
+  services?: string[];
+  closingTime?: string;
+  active?: boolean;
+  tagline?: string;
+  whatsapp: string;
   businessHours: string;
   instagram: string;
   youtube: string;
   facebook?: string;
   googleMapsUrl?: string;
+  email?: string;
+  website?: string;
   announcementText: string;
   heroTitle: string;
   heroSubtitle: string;

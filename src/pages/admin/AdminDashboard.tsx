@@ -48,6 +48,7 @@ export const AdminDashboard: React.FC = () => {
   const [searchProductQuery, setSearchProductQuery] = useState('');
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('All');
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [quickImageProduct, setQuickImageProduct] = useState<Product | null>(null);
   const [isCreatingProduct, setIsCreatingProduct] = useState(false);
   const [viewingOrder, setViewingOrder] = useState<Order | null>(null);
 
@@ -135,7 +136,7 @@ export const AdminDashboard: React.FC = () => {
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-black uppercase tracking-tight mt-0.5">
-              AL-HALAL Management Portal
+              {settings.businessName || 'ITALIA SHOES'} Management Portal
             </h1>
             <p className="text-xs text-neutral-500">
               Control physical showroom inventory, order tracking, and live catalog availability.
@@ -383,12 +384,25 @@ export const AdminDashboard: React.FC = () => {
                         {/* Details */}
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-3">
-                            <img
-                              src={p.thumbnail}
-                              alt={p.name}
-                              className="w-12 h-12 object-contain bg-[#f8f8f8] rounded-xl p-1 shrink-0"
-                              referrerPolicy="no-referrer"
-                            />
+                            <button
+                              type="button"
+                              onClick={() => setQuickImageProduct(p)}
+                              className="relative group/thumb cursor-pointer shrink-0"
+                              title="Click to update product image & gallery"
+                            >
+                              <img
+                                src={p.thumbnail}
+                                alt={p.name}
+                                onError={(e) => {
+                                  e.currentTarget.src = 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png';
+                                }}
+                                className="w-12 h-12 object-contain bg-[#f8f8f8] rounded-xl p-1 border border-neutral-200 group-hover/thumb:border-black transition-colors"
+                                referrerPolicy="no-referrer"
+                              />
+                              <span className="absolute inset-0 bg-black/50 rounded-xl opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center text-white text-[9px] font-bold transition-opacity">
+                                Change
+                              </span>
+                            </button>
                             <div>
                               <p className="font-bold text-black uppercase">{p.name}</p>
                               <p className="text-[11px] text-neutral-400">
@@ -499,6 +513,15 @@ export const AdminDashboard: React.FC = () => {
                         {/* Actions */}
                         <td className="py-3 px-4 text-right">
                           <div className="flex items-center justify-end gap-1">
+                            <button
+                              type="button"
+                              onClick={() => setQuickImageProduct(p)}
+                              className="p-1.5 text-neutral-500 hover:text-black hover:bg-neutral-100 rounded-lg flex items-center gap-1 font-bold text-[11px]"
+                              title="Update product images & photos"
+                            >
+                              <ImageIcon className="w-3.5 h-3.5" />
+                              <span className="hidden sm:inline">Image</span>
+                            </button>
                             <button
                               type="button"
                               onClick={() => setEditingProduct(p)}
@@ -613,7 +636,7 @@ export const AdminDashboard: React.FC = () => {
                           type="button"
                           onClick={() =>
                             openWhatsApp(
-                              `Hello ${order.customerName}, regarding your footwear order #${order.orderNumber} from AL-HALAL A FOOT STATION: it is currently ${order.status.toUpperCase()}.`,
+                              `Hello ${order.customerName}, regarding your footwear order #${order.orderNumber} from ${settings.businessName || 'ITALIA SHOES'}: it is currently ${order.status.toUpperCase()}.`,
                               order.customerPhone
                             )
                           }
@@ -723,9 +746,25 @@ export const AdminDashboard: React.FC = () => {
         )}
       </div>
 
+      {/* Quick Image Updater Modal */}
+      {quickImageProduct && (
+        <QuickImageModal
+          product={quickImageProduct}
+          onClose={() => setQuickImageProduct(null)}
+          onSave={(productId, newThumbnail, newImages) => {
+            updateProduct(productId, {
+              thumbnail: newThumbnail,
+              images: newImages,
+            });
+            showToast(`Images updated for "${quickImageProduct.name}"!`, 'success');
+          }}
+        />
+      )}
+
       {/* Edit / Create Product Modal Drawer */}
       {(editingProduct || isCreatingProduct) && (
         <ProductFormModal
+          key={editingProduct?.id || (isCreatingProduct ? 'new-product-form' : 'none')}
           product={editingProduct}
           onClose={() => {
             setEditingProduct(null);
@@ -733,6 +772,218 @@ export const AdminDashboard: React.FC = () => {
           }}
         />
       )}
+    </div>
+  );
+};
+
+// Helper to normalize image URLs from any hosting service (postimg, imgur, drive, etc.)
+export const normalizeImageUrl = (rawUrl: string): string => {
+  if (!rawUrl) return '';
+  let url = rawUrl.trim();
+  // If user pasted postimg.cc page URL: https://postimg.cc/xxxx -> https://i.postimg.cc/xxxx/image.png
+  if (url.includes('postimg.cc') && !url.includes('i.postimg.cc')) {
+    const match = url.match(/postimg\.cc\/([a-zA-Z0-9_-]+)/);
+    if (match && match[1]) {
+      return `https://i.postimg.cc/${match[1]}/image.png`;
+    }
+  }
+  // If user pasted Google Drive preview URL:
+  if (url.includes('drive.google.com') && url.includes('/file/d/')) {
+    const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (match && match[1]) {
+      return `https://lh3.googleusercontent.com/d/${match[1]}`;
+    }
+  }
+  return url;
+};
+
+// Focused Quick Image Modal
+interface QuickImageModalProps {
+  product: Product;
+  onClose: () => void;
+  onSave: (productId: string, newThumbnail: string, newImages: string[]) => void;
+}
+
+const QuickImageModal: React.FC<QuickImageModalProps> = ({ product, onClose, onSave }) => {
+  const [imageUrl, setImageUrl] = useState(product.thumbnail || '');
+  const [galleryUrls, setGalleryUrls] = useState<string[]>(
+    product.images && product.images.length > 0 ? product.images : [product.thumbnail]
+  );
+  const [replaceMode, setReplaceMode] = useState<'replace_all' | 'keep_gallery'>('replace_all');
+  const [previewError, setPreviewError] = useState(false);
+  const [uploadLoading, setUploadLoading] = useState(false);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadLoading(true);
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const dataUrl = event.target?.result as string;
+      if (dataUrl) {
+        setImageUrl(dataUrl);
+        setPreviewError(false);
+      }
+      setUploadLoading(false);
+    };
+    reader.onerror = () => setUploadLoading(false);
+    reader.readAsDataURL(file);
+  };
+
+  const handleSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleaned = normalizeImageUrl(imageUrl.trim());
+    if (!cleaned) {
+      alert('Please enter an image link or upload a file.');
+      return;
+    }
+
+    let finalImages: string[];
+    if (replaceMode === 'replace_all') {
+      finalImages = [cleaned];
+    } else {
+      finalImages = Array.from(new Set([cleaned, ...galleryUrls.map(normalizeImageUrl)]));
+    }
+
+    onSave(product.id, cleaned, finalImages);
+    onClose();
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div onClick={onClose} className="fixed inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl z-10 max-h-[90vh] overflow-y-auto space-y-5 animate-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between pb-3 border-b border-neutral-100">
+          <div>
+            <h3 className="text-sm font-black uppercase text-black flex items-center gap-2">
+              <ImageIcon className="w-4 h-4 text-black" />
+              Update Product Image
+            </h3>
+            <p className="text-xs text-neutral-500 mt-0.5">
+              {product.name} ({product.brand}) • SKU: {product.sku}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1 text-neutral-400 hover:text-black rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <form onSubmit={handleSave} className="space-y-4 text-xs">
+          {/* Main Image Link input */}
+          <div className="space-y-1.5">
+            <label className="block font-bold text-neutral-700 uppercase">
+              Product Image Link / Direct URL
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                required
+                value={imageUrl}
+                onChange={(e) => {
+                  setImageUrl(e.target.value);
+                  setPreviewError(false);
+                }}
+                placeholder="Paste any link: https://i.postimg.cc/..., imgur, CDN, web link"
+                className="flex-1 px-3 py-2.5 bg-[#fafafa] border border-neutral-300 focus:border-black rounded-xl text-xs font-mono text-neutral-900"
+              />
+              <label className="px-3 py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold rounded-xl cursor-pointer flex items-center gap-1.5 border border-neutral-300 transition-colors shrink-0">
+                <Upload className="w-3.5 h-3.5" />
+                <span>Upload</span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+              </label>
+            </div>
+            <p className="text-[11px] text-neutral-500">
+              Paste your PostImage (<code className="font-mono">i.postimg.cc</code>), Imgur, Google Drive, or any direct link. Any public image link is supported.
+            </p>
+          </div>
+
+          {/* Live Preview Box */}
+          <div className="bg-[#f8f8f8] p-3 rounded-2xl border border-neutral-200 flex items-center gap-3">
+            <div className="w-20 h-20 bg-white rounded-xl border border-neutral-200 p-1 flex items-center justify-center shrink-0 overflow-hidden">
+              {imageUrl ? (
+                !previewError ? (
+                  <img
+                    src={normalizeImageUrl(imageUrl)}
+                    alt="Preview"
+                    onError={() => setPreviewError(true)}
+                    className="w-full h-full object-contain"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <span className="text-[10px] text-red-500 font-bold text-center px-1">
+                    Image Not Loaded
+                  </span>
+                )
+              ) : (
+                <span className="text-[10px] text-neutral-400 font-bold text-center">No image</span>
+              )}
+            </div>
+            <div className="flex-1 min-w-0">
+              <span className="text-[10px] font-bold uppercase text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded inline-block">
+                Live Image Preview
+              </span>
+              <p className="text-[11px] font-mono text-neutral-600 truncate mt-1">
+                {imageUrl || 'No URL specified'}
+              </p>
+            </div>
+          </div>
+
+          {/* Replacement Mode */}
+          <div className="bg-neutral-50 p-3.5 rounded-2xl border border-neutral-200 space-y-2">
+            <span className="font-bold text-neutral-800 block text-xs">Update Option:</span>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="replaceMode"
+                checked={replaceMode === 'replace_all'}
+                onChange={() => setReplaceMode('replace_all')}
+                className="accent-black"
+              />
+              <span className="text-xs text-neutral-800 font-medium">
+                <strong>Replace all product images</strong> with this new link (cleans out old demo images)
+              </span>
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="replaceMode"
+                checked={replaceMode === 'keep_gallery'}
+                onChange={() => setReplaceMode('keep_gallery')}
+                className="accent-black"
+              />
+              <span className="text-xs text-neutral-800 font-medium">
+                Keep existing gallery and set this as main thumbnail
+              </span>
+            </label>
+          </div>
+
+          <div className="pt-3 border-t border-neutral-100 flex items-center justify-end gap-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 text-neutral-600 font-bold hover:bg-neutral-100 rounded-xl"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={uploadLoading || !imageUrl.trim()}
+              className="px-5 py-2.5 bg-black text-white font-bold rounded-xl hover:bg-neutral-800 disabled:opacity-50 transition-colors shadow-md"
+            >
+              Update Image Now
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
@@ -747,12 +998,12 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ product, onClose })
   const { updateProduct, addProduct, categories, showToast } = useStore();
 
   const [name, setName] = useState(product?.name || '');
-  const [brand, setBrand] = useState(product?.brand || 'AL-HALAL');
+  const [brand, setBrand] = useState(product?.brand || 'ITALIA');
   const [category, setCategory] = useState(product?.category || "Men's Footwear");
   const [gender, setGender] = useState(product?.gender || 'Men');
   const [price, setPrice] = useState(product?.price || 1299);
   const [salePrice, setSalePrice] = useState(product?.salePrice || 999);
-  const [sku, setSku] = useState(product?.sku || `AHFS-${Math.floor(1000 + Math.random() * 9000)}`);
+  const [sku, setSku] = useState(product?.sku || `IS-${Math.floor(1000 + Math.random() * 9000)}`);
   
   // Image management state
   const [thumbnail, setThumbnail] = useState(product?.thumbnail || '');
@@ -811,11 +1062,30 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ product, onClose })
     });
   };
 
+  const handleClearAllImages = () => {
+    setThumbnail('');
+    setGalleryImages([]);
+    setNewImageUrl('');
+    setImageError(false);
+  };
+
+  const handleReplaceAllImagesWithThumbnail = () => {
+    const cleaned = normalizeImageUrl(thumbnail.trim());
+    if (!cleaned) {
+      alert('Please enter or upload a valid image link first.');
+      return;
+    }
+    setThumbnail(cleaned);
+    setGalleryImages([cleaned]);
+    setImageError(false);
+    showToast('Replaced all gallery images with current main image link!', 'info');
+  };
+
   const handleAddGalleryUrl = () => {
     if (!newImageUrl.trim()) return;
     const urls = newImageUrl
       .split(/[\n,]+/)
-      .map((u) => u.trim())
+      .map((u) => normalizeImageUrl(u.trim()))
       .filter((u) => u.length > 0);
 
     setGalleryImages((prev) => {
@@ -857,12 +1127,16 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ product, onClose })
     const calculatedDiscount =
       salePrice && salePrice < price ? Math.round(((price - salePrice) / price) * 100) : 0;
 
-    const finalThumbnail = thumbnail.trim() || (galleryImages.length > 0 ? galleryImages[0] : '');
-    const cleanGallery = galleryImages.map((u) => u.trim()).filter(Boolean);
-    const finalImages = [
-      ...(finalThumbnail ? [finalThumbnail] : []),
-      ...cleanGallery.filter((img) => img !== finalThumbnail),
-    ];
+    const pendingUrls = newImageUrl.trim()
+      ? newImageUrl.split(/[\n,]+/).map((u) => normalizeImageUrl(u.trim())).filter(Boolean)
+      : [];
+    const cleanedThumbnail = normalizeImageUrl(thumbnail.trim());
+    const allGalleryUrls = [...galleryImages.map((u) => normalizeImageUrl(u)), ...pendingUrls].filter(Boolean);
+    const finalThumbnail = cleanedThumbnail || (allGalleryUrls.length > 0 ? allGalleryUrls[0] : '');
+    const finalImages = finalThumbnail
+      ? [finalThumbnail, ...allGalleryUrls.filter((img) => img !== finalThumbnail)]
+      : allGalleryUrls;
+
     if (finalImages.length === 0 && finalThumbnail) {
       finalImages.push(finalThumbnail);
     }
@@ -952,7 +1226,7 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ product, onClose })
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Al-Halal Urban Flex Shoe"
+                placeholder="e.g. Italia Classic Formal Shoe"
                 className="w-full px-3 py-2 bg-[#fafafa] border border-neutral-200 rounded-xl"
               />
             </div>
@@ -964,7 +1238,7 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ product, onClose })
                 required
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-                placeholder="e.g. AL-HALAL, FOSSIL, RAY-BAN"
+                placeholder="e.g. ITALIA, SPARX, BATA, VKC"
                 className="w-full px-3 py-2 bg-[#fafafa] border border-neutral-200 rounded-xl"
               />
             </div>
@@ -1060,29 +1334,51 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ product, onClose })
               </div>
             </div>
 
-            {/* Thumbnail Live Preview */}
+            {/* Thumbnail Live Preview & Quick Actions */}
             {thumbnail ? (
-              <div className="flex items-center gap-4 bg-white p-3 rounded-xl border border-neutral-200">
-                <div className="w-16 h-16 rounded-lg bg-[#f0f0f0] p-1 flex items-center justify-center shrink-0 overflow-hidden border border-neutral-100">
-                  {!imageError ? (
-                    <img
-                      src={thumbnail}
-                      alt="Preview"
-                      onError={() => setImageError(true)}
-                      className="w-full h-full object-contain"
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <div className="text-[10px] text-red-500 font-bold text-center">Broken Image</div>
-                  )}
+              <div className="space-y-2">
+                <div className="flex items-center gap-4 bg-white p-3 rounded-xl border border-neutral-200">
+                  <div className="w-16 h-16 rounded-lg bg-[#f0f0f0] p-1 flex items-center justify-center shrink-0 overflow-hidden border border-neutral-100">
+                    {!imageError ? (
+                      <img
+                        src={normalizeImageUrl(thumbnail)}
+                        alt="Preview"
+                        onError={() => setImageError(true)}
+                        className="w-full h-full object-contain"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
+                      <div className="text-[10px] text-red-500 font-bold text-center">Broken Image</div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-bold uppercase text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded inline-block">
+                      Primary Thumbnail Active
+                    </span>
+                    <p className="text-[11px] text-neutral-500 truncate mt-1 font-mono">
+                      {thumbnail}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-[10px] font-bold uppercase text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded inline-block">
-                    Primary Thumbnail Active
-                  </span>
-                  <p className="text-[11px] text-neutral-500 truncate mt-1 font-mono">
-                    {thumbnail}
-                  </p>
+
+                {/* Quick actions for images */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleReplaceAllImagesWithThumbnail}
+                    className="px-3 py-1.5 bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-[11px] font-bold rounded-lg transition-colors border border-neutral-200"
+                    title="Replace all product gallery images with this current main image"
+                  >
+                    Replace All Gallery With This Link
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleClearAllImages}
+                    className="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 text-[11px] font-bold rounded-lg transition-colors border border-red-100"
+                    title="Clear all images so you can paste brand new links"
+                  >
+                    Clear All Images
+                  </button>
                 </div>
               </div>
             ) : null}

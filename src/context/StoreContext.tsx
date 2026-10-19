@@ -25,7 +25,6 @@ import {
   doc,
   getDocs,
   setDoc,
-  updateDoc,
   deleteDoc,
   onSnapshot,
 } from 'firebase/firestore';
@@ -101,46 +100,103 @@ interface StoreContextType {
   updateOffers: (offers: Offer[]) => void;
   updateSettings: (settings: BusinessSettings) => void;
   resetToDemoCatalog: () => void;
+  cleanOldFirestoreDataAndSyncSettings: () => Promise<{ success: boolean; message: string; details: string[] }>;
   approveReview: (reviewId: string) => void;
   deleteReview: (reviewId: string) => void;
 }
 
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
-const CATALOG_SCHEMA_VERSION = 'v4_all_postimg_catalog';
+const CATALOG_SCHEMA_VERSION = 'v2_italia_shoes_catalog_postimg_64';
 
 export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // Immediate migration: purge all old AL-HALAL localStorage keys
+  useEffect(() => {
+    try {
+      const oldKeys = [
+        'alhalal_version',
+        'alhalal_products',
+        'alhalal_categories',
+        'alhalal_banners',
+        'alhalal_offers',
+        'alhalal_settings',
+        'alhalal_cart',
+        'alhalal_wishlist',
+        'alhalal_orders',
+        'alhalal_recent',
+        'alhalal_reviews',
+        'alhalal_user',
+      ];
+      oldKeys.forEach((k) => localStorage.removeItem(k));
+    } catch {
+      // Ignore
+    }
+  }, []);
+
   // Persistent or default state
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const version = localStorage.getItem('alhalal_version');
-      const saved = localStorage.getItem('alhalal_products');
+      const version = localStorage.getItem('italia_shoes_version');
+      const saved = localStorage.getItem('italia_shoes_products');
       if (version === CATALOG_SCHEMA_VERSION && saved) {
         const parsed = JSON.parse(saved);
-        // Check if watches exist in saved
-        if (parsed.some((p: Product) => p.category === 'Branded Watches')) {
+        if (
+          Array.isArray(parsed) &&
+          parsed.length >= 64 &&
+          !parsed.some((p: any) => p.brand === 'AL-HALAL' || p.brand === 'AL-HALAL SPORT') &&
+          !parsed.some((p: any) => p.thumbnail?.includes('unsplash'))
+        ) {
           return parsed;
         }
       }
-      localStorage.setItem('alhalal_version', CATALOG_SCHEMA_VERSION);
-      localStorage.setItem('alhalal_products', JSON.stringify(demoProducts));
+      localStorage.setItem('italia_shoes_version', CATALOG_SCHEMA_VERSION);
+      localStorage.setItem('italia_shoes_products', JSON.stringify(demoProducts));
       return demoProducts;
     } catch {
       return demoProducts;
     }
   });
 
+  // Auto-upgrade product storage if old unsplash links are detected
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('italia_shoes_products');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (
+          !Array.isArray(parsed) ||
+          parsed.length < 64 ||
+          parsed.some(
+            (p: any) =>
+              p.thumbnail?.includes('unsplash') ||
+              p.images?.some((img: string) => img.includes('unsplash'))
+          )
+        ) {
+          setProducts(demoProducts);
+          localStorage.setItem('italia_shoes_products', JSON.stringify(demoProducts));
+          localStorage.setItem('italia_shoes_version', CATALOG_SCHEMA_VERSION);
+        }
+      }
+    } catch {
+      // Ignore
+    }
+  }, []);
+
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const version = localStorage.getItem('alhalal_version');
-      const saved = localStorage.getItem('alhalal_categories');
+      const version = localStorage.getItem('italia_shoes_version');
+      const saved = localStorage.getItem('italia_shoes_categories');
       if (version === CATALOG_SCHEMA_VERSION && saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.some((c: Category) => c.name === 'Branded Watches')) {
+        if (
+          Array.isArray(parsed) &&
+          parsed.length > 0 &&
+          !parsed.some((c: any) => c.slug === 'branded-watches')
+        ) {
           return parsed;
         }
       }
-      localStorage.setItem('alhalal_categories', JSON.stringify(initialCategories));
+      localStorage.setItem('italia_shoes_categories', JSON.stringify(initialCategories));
       return initialCategories;
     } catch {
       return initialCategories;
@@ -149,12 +205,15 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const [banners, setBanners] = useState<Banner[]>(() => {
     try {
-      const version = localStorage.getItem('alhalal_version');
-      const saved = localStorage.getItem('alhalal_banners');
+      const version = localStorage.getItem('italia_shoes_version');
+      const saved = localStorage.getItem('italia_shoes_banners');
       if (version === CATALOG_SCHEMA_VERSION && saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0]?.title?.includes('ITALIA')) {
+          return parsed;
+        }
       }
-      localStorage.setItem('alhalal_banners', JSON.stringify(initialBanners));
+      localStorage.setItem('italia_shoes_banners', JSON.stringify(initialBanners));
       return initialBanners;
     } catch {
       return initialBanners;
@@ -162,63 +221,80 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   });
 
   const [offers, setOffers] = useState<Offer[]>(() => {
-    const saved = localStorage.getItem('alhalal_offers');
-    return saved ? JSON.parse(saved) : initialOffers;
+    try {
+      const saved = localStorage.getItem('italia_shoes_offers');
+      return saved ? JSON.parse(saved) : initialOffers;
+    } catch {
+      return initialOffers;
+    }
   });
 
   const [settings, setSettings] = useState<BusinessSettings>(() => {
-    const saved = localStorage.getItem('alhalal_settings');
-    return saved ? JSON.parse(saved) : initialSettings;
+    try {
+      const saved = localStorage.getItem('italia_shoes_settings');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.businessName === 'ITALIA SHOES') {
+          return {
+            ...parsed,
+            tamilName: '',
+            announcementText: (parsed.announcementText || '')
+              .replace(/[\u0B80-\u0BFF]+/g, '')
+              .replace(/•\s*•/g, '•')
+              .replace(/\s+/g, ' ')
+              .trim(),
+          };
+        }
+      }
+      return initialSettings;
+    } catch {
+      return initialSettings;
+    }
   });
 
   const [cart, setCart] = useState<CartItem[]>(() => {
-    const saved = localStorage.getItem('alhalal_cart');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('italia_shoes_cart');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
-    const saved = localStorage.getItem('alhalal_wishlist');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('italia_shoes_wishlist');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   const [orders, setOrders] = useState<Order[]>(() => {
-    const saved = localStorage.getItem('alhalal_orders');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('italia_shoes_orders');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   const [recentlyViewedIds, setRecentlyViewedIds] = useState<string[]>(() => {
-    const saved = localStorage.getItem('alhalal_recent');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('italia_shoes_recent');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   const [reviews, setReviews] = useState<Review[]>(() => {
-    const saved = localStorage.getItem('alhalal_reviews');
-    return saved
-      ? JSON.parse(saved)
-      : [
-          {
-            id: 'rev-1',
-            productId: 'prod-001',
-            productName: "Al-Halal Men's Urban Flex Casual Shoe",
-            customerId: 'user-01',
-            customerName: 'Ahamed R.',
-            rating: 5,
-            comment: 'Super comfort sole! Fits true to size and looks very premium in person.',
-            approved: true,
-            createdAt: '2026-03-09T10:00:00.000Z',
-          },
-          {
-            id: 'rev-2',
-            productId: 'prod-002',
-            productName: 'Air Sprint Pro Sports Running Shoe',
-            customerId: 'user-02',
-            customerName: 'Mohamed Farhan',
-            rating: 5,
-            comment: 'Best cushioning for morning jogging. The red color accents are bold.',
-            approved: true,
-            createdAt: '2026-03-10T12:00:00.000Z',
-          },
-        ];
+    try {
+      const saved = localStorage.getItem('italia_shoes_reviews');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   // UI state
@@ -231,8 +307,12 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   // User state
   const [user, setUser] = useState<UserProfile | null>(() => {
-    const saved = localStorage.getItem('alhalal_user');
-    return saved ? JSON.parse(saved) : null;
+    try {
+      const saved = localStorage.getItem('italia_shoes_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
   });
 
   const showToast = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
@@ -245,50 +325,50 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   // Sync to local storage
   useEffect(() => {
-    localStorage.setItem('alhalal_products', JSON.stringify(products));
+    localStorage.setItem('italia_shoes_products', JSON.stringify(products));
   }, [products]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_categories', JSON.stringify(categories));
+    localStorage.setItem('italia_shoes_categories', JSON.stringify(categories));
   }, [categories]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_banners', JSON.stringify(banners));
+    localStorage.setItem('italia_shoes_banners', JSON.stringify(banners));
   }, [banners]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_offers', JSON.stringify(offers));
+    localStorage.setItem('italia_shoes_offers', JSON.stringify(offers));
   }, [offers]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_settings', JSON.stringify(settings));
+    localStorage.setItem('italia_shoes_settings', JSON.stringify(settings));
   }, [settings]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_cart', JSON.stringify(cart));
+    localStorage.setItem('italia_shoes_cart', JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_wishlist', JSON.stringify(wishlist));
+    localStorage.setItem('italia_shoes_wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_orders', JSON.stringify(orders));
+    localStorage.setItem('italia_shoes_orders', JSON.stringify(orders));
   }, [orders]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_recent', JSON.stringify(recentlyViewedIds));
+    localStorage.setItem('italia_shoes_recent', JSON.stringify(recentlyViewedIds));
   }, [recentlyViewedIds]);
 
   useEffect(() => {
-    localStorage.setItem('alhalal_reviews', JSON.stringify(reviews));
+    localStorage.setItem('italia_shoes_reviews', JSON.stringify(reviews));
   }, [reviews]);
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem('alhalal_user', JSON.stringify(user));
+      localStorage.setItem('italia_shoes_user', JSON.stringify(user));
     } else {
-      localStorage.removeItem('alhalal_user');
+      localStorage.removeItem('italia_shoes_user');
     }
   }, [user]);
 
@@ -297,12 +377,11 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     if (isFirebaseConfigured && auth) {
       const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: User | null) => {
         if (firebaseUser) {
-          // Check admin collection in Firestore if possible
           let role: 'customer' | 'admin' = 'customer';
           try {
             if (db) {
-              const adminDoc = doc(db, 'admins', firebaseUser.uid);
-              // Listen or check
+              const adminDocRef = doc(db, 'admins', firebaseUser.uid);
+              // Firestore check if admin document exists
             }
           } catch (e) {
             console.error(e);
@@ -320,59 +399,75 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
   }, []);
 
-  // Cart Calculations
-  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-  const cartSubtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-
-  let cartDiscount = 0;
-  if (appliedCoupon) {
-    if (appliedCoupon.discountType === 'percentage') {
-      cartDiscount = Math.round((cartSubtotal * appliedCoupon.discountValue) / 100);
-    } else {
-      cartDiscount = appliedCoupon.discountValue;
+  // Firebase Firestore real-time sync for settings/business if configured
+  useEffect(() => {
+    if (isFirebaseConfigured && db) {
+      try {
+        const businessDocRef = doc(db, 'settings', 'business');
+        const unsub = onSnapshot(businessDocRef, (snap) => {
+          if (snap.exists()) {
+            const data = snap.data();
+            if (data.businessName === 'ITALIA SHOES') {
+              setSettings((prev) => ({
+                ...prev,
+                ...data,
+                tamilName: '',
+                announcementText: (data.announcementText || '')
+                  .replace(/[\u0B80-\u0BFF]+/g, '')
+                  .replace(/•\s*•/g, '•')
+                  .replace(/\s+/g, ' ')
+                  .trim(),
+              }));
+            }
+          }
+        });
+        return () => unsub();
+      } catch (err) {
+        console.warn('Firestore settings listener error:', err);
+      }
     }
-  }
+  }, []);
 
-  // Free shipping above 999
-  const cartShippingFee = cartSubtotal > 999 || cartCount === 0 ? 0 : 80;
+  // Cart calculations
+  const cartCount = cart.reduce((acc, it) => acc + it.quantity, 0);
+  const cartSubtotal = cart.reduce((acc, it) => acc + it.price * it.quantity, 0);
+
+  const cartDiscount = appliedCoupon
+    ? appliedCoupon.discountType === 'percentage'
+      ? Math.round((cartSubtotal * appliedCoupon.discountValue) / 100)
+      : Math.min(appliedCoupon.discountValue, cartSubtotal)
+    : 0;
+
+  const cartShippingFee = cartSubtotal > 1499 || cartCount === 0 ? 0 : 99;
   const cartTotal = Math.max(0, cartSubtotal - cartDiscount + cartShippingFee);
 
   // Cart Actions
   const addToCart = (item: CartItem): boolean => {
-    // Check product stock in inventory
     const product = products.find((p) => p.id === item.productId);
-    if (!product) {
-      showToast('Product not found in catalogue', 'error');
-      return false;
-    }
+    if (!product) return false;
 
-    const availableSizeStock = product.sizeStock[item.size] ?? 0;
-    const existing = cart.find(
-      (ci) => ci.productId === item.productId && ci.color === item.color && ci.size === item.size
+    const sizeStock = product.sizeStock?.[item.size] ?? product.stock ?? 10;
+    const existingIndex = cart.findIndex(
+      (c) => c.productId === item.productId && c.color === item.color && c.size === item.size
     );
 
-    const currentQtyInCart = existing ? existing.quantity : 0;
-    if (currentQtyInCart + item.quantity > availableSizeStock) {
-      showToast(
-        `Size ${item.size} stock limit reached. Only ${availableSizeStock} available.`,
-        'error'
-      );
+    const currentInCart = existingIndex > -1 ? cart[existingIndex].quantity : 0;
+    if (currentInCart + item.quantity > sizeStock) {
+      showToast(`Cannot add more. Only ${sizeStock} pairs available in size ${item.size}.`, 'error');
       return false;
     }
 
-    setCart((prev) => {
-      const idx = prev.findIndex(
-        (ci) => ci.productId === item.productId && ci.color === item.color && ci.size === item.size
-      );
-      if (idx > -1) {
-        const next = [...prev];
-        next[idx].quantity += item.quantity;
-        return next;
-      }
-      return [...prev, item];
-    });
+    if (existingIndex > -1) {
+      setCart((prev) => {
+        const copy = [...prev];
+        copy[existingIndex].quantity += item.quantity;
+        return copy;
+      });
+    } else {
+      setCart((prev) => [...prev, item]);
+    }
 
-    showToast(`Added ${item.name} (${item.color}, Size ${item.size}) to cart!`, 'success');
+    showToast(`Added ${item.name} (${item.size}) to cart`, 'success');
     return true;
   };
 
@@ -388,30 +483,29 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
 
     const product = products.find((p) => p.id === productId);
-    const availableStock = product?.sizeStock[size] ?? 10;
+    const maxStock = product?.sizeStock?.[size] ?? product?.stock ?? 99;
 
-    if (quantity > availableStock) {
-      showToast(`Only ${availableStock} pair(s) available in size ${size}`, 'error');
+    if (quantity > maxStock) {
+      showToast(`Only ${maxStock} units currently available in showroom stock.`, 'error');
       return;
     }
 
     setCart((prev) =>
-      prev.map((item) => {
-        if (item.productId === productId && item.color === color && item.size === size) {
-          return { ...item, quantity };
-        }
-        return item;
-      })
+      prev.map((c) =>
+        c.productId === productId && c.color === color && c.size === size
+          ? { ...c, quantity }
+          : c
+      )
     );
   };
 
   const removeFromCart = (productId: string, color: string, size: string) => {
     setCart((prev) =>
       prev.filter(
-        (item) => !(item.productId === productId && item.color === color && item.size === size)
+        (c) => !(c.productId === productId && c.color === color && c.size === size)
       )
     );
-    showToast('Item removed from cart', 'info');
+    showToast('Removed item from shopping cart', 'info');
   };
 
   const clearCart = () => {
@@ -419,22 +513,20 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   const applyCoupon = (code: string): boolean => {
-    const clean = code.trim().toUpperCase();
-    const found = offers.find(
-      (o) => o.active && o.couponCode && o.couponCode.toUpperCase() === clean
-    );
+    const cleanCode = code.trim().toUpperCase();
+    const found = offers.find((o) => o.couponCode === cleanCode && o.active);
     if (!found) {
       showToast('Invalid or expired coupon code.', 'error');
       return false;
     }
 
     if (found.minSpend && cartSubtotal < found.minSpend) {
-      showToast(`Coupon requires minimum cart subtotal of ₹${found.minSpend}`, 'error');
+      showToast(`Coupon requires minimum order of ₹${found.minSpend.toLocaleString('en-IN')}`, 'error');
       return false;
     }
 
     setAppliedCoupon(found);
-    showToast(`Coupon ${found.couponCode} applied successfully!`, 'success');
+    showToast(`Coupon "${cleanCode}" applied successfully!`, 'success');
     return true;
   };
 
@@ -447,13 +539,12 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const toggleWishlist = (productId: string) => {
     setWishlist((prev) => {
       const exists = prev.includes(productId);
-      if (exists) {
-        showToast('Removed from Wishlist', 'info');
-        return prev.filter((id) => id !== productId);
-      } else {
-        showToast('Saved to Wishlist', 'success');
-        return [...prev, productId];
-      }
+      const next = exists ? prev.filter((id) => id !== productId) : [...prev, productId];
+      showToast(
+        exists ? 'Removed from saved wishlist' : 'Saved to footwear wishlist',
+        'info'
+      );
+      return next;
     });
   };
 
@@ -463,93 +554,83 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const addRecentlyViewed = (product: Product) => {
     setRecentlyViewedIds((prev) => {
       const filtered = prev.filter((id) => id !== product.id);
-      return [product.id, ...filtered].slice(0, 6);
+      return [product.id, ...filtered].slice(0, 8);
     });
   };
 
   const recentlyViewed = recentlyViewedIds
     .map((id) => products.find((p) => p.id === id))
-    .filter((p): p is Product => Boolean(p));
+    .filter(Boolean) as Product[];
 
   // Orders
   const createOrder = async (
     orderData: Omit<Order, 'id' | 'createdAt' | 'updatedAt' | 'orderStatus'>
   ): Promise<Order> => {
-    const orderId = 'AH-' + Date.now().toString().slice(-6) + '-' + Math.floor(100 + Math.random() * 900);
-    const now = new Date().toISOString();
-
+    const orderNumber = 'IS-' + Math.floor(100000 + Math.random() * 900000);
     const newOrder: Order = {
       ...orderData,
-      id: orderId,
-      orderStatus: 'Pending',
-      createdAt: now,
-      updatedAt: now,
+      id: 'ord-' + Date.now().toString(),
+      orderNumber,
+      orderStatus: 'pending',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
 
-    // Deduct stock for ordered items
-    setProducts((prevProducts) => {
-      return prevProducts.map((p) => {
-        const itemOrdered = orderData.items.find((it) => it.productId === p.id);
-        if (!itemOrdered) return p;
+    // Deduct stock locally
+    setProducts((prev) =>
+      prev.map((prod) => {
+        const orderedItem = orderData.items.find((it) => it.productId === prod.id);
+        if (!orderedItem) return prod;
 
-        const updatedSizeStock = { ...p.sizeStock };
-        const currentSizeStock = updatedSizeStock[itemOrdered.size] ?? 0;
-        const newSizeStock = Math.max(0, currentSizeStock - itemOrdered.quantity);
-        updatedSizeStock[itemOrdered.size] = newSizeStock;
-
-        const totalStock = (Object.values(updatedSizeStock) as number[]).reduce(
-          (sum: number, val: number) => sum + val,
+        const currentStock = prod.sizeStock?.[orderedItem.size] || 0;
+        const newSizeStock = {
+          ...prod.sizeStock,
+          [orderedItem.size]: Math.max(0, currentStock - orderedItem.quantity),
+        };
+        const updatedTotal = Object.values(newSizeStock).reduce(
+          (acc: number, q: unknown) => acc + (typeof q === 'number' ? q : Number(q) || 0),
           0
         );
-
         return {
-          ...p,
-          sizeStock: updatedSizeStock,
-          stock: totalStock,
-          status: totalStock === 0 ? 'out_of_stock' : p.status,
-          updatedAt: now,
+          ...prod,
+          sizeStock: newSizeStock,
+          stock: updatedTotal,
         };
-      });
-    });
+      })
+    );
 
+    // Save to orders state
     setOrders((prev) => [newOrder, ...prev]);
-    clearCart();
-    setAppliedCoupon(null);
 
     // Save to Firestore if available
     if (isFirebaseConfigured && db) {
       try {
-        await setDoc(doc(db, 'orders', orderId), newOrder);
-      } catch (e) {
-        console.warn('Firestore order sync fallback:', e);
+        await setDoc(doc(db, 'orders', newOrder.id), newOrder);
+      } catch (err) {
+        console.error('Firestore save order error:', err);
       }
     }
 
-    showToast(`Order #${orderId} confirmed successfully!`, 'success');
+    clearCart();
+    setAppliedCoupon(null);
     return newOrder;
   };
 
   const updateOrderStatus = (orderId: string, status: OrderStatus) => {
-    const now = new Date().toISOString();
     setOrders((prev) =>
-      prev.map((o) => (o.id === orderId ? { ...o, orderStatus: status, updatedAt: now } : o))
+      prev.map((o) => (o.id === orderId ? { ...o, status, updatedAt: new Date().toISOString() } : o))
     );
-
     if (isFirebaseConfigured && db) {
       try {
-        updateDoc(doc(db, 'orders', orderId), {
-          orderStatus: status,
-          updatedAt: now,
-        });
+        setDoc(doc(db, 'orders', orderId), { status, updatedAt: new Date().toISOString() }, { merge: true });
       } catch (e) {
-        console.warn(e);
+        console.error(e);
       }
     }
-
-    showToast(`Order #${orderId} status updated to ${status}`, 'success');
+    showToast(`Order status updated to ${status.toUpperCase()}`, 'success');
   };
 
-  // Auth Methods
+  // Auth Handlers
   const loginWithGoogle = async () => {
     if (isFirebaseConfigured && auth) {
       try {
@@ -562,34 +643,33 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
           photoURL: fbUser.photoURL,
           role: 'customer',
         });
-        showToast(`Welcome back, ${fbUser.displayName || 'Customer'}!`, 'success');
+        showToast(`Welcome, ${fbUser.displayName || 'Customer'}!`, 'success');
       } catch (err: any) {
         console.error('Google Sign-In Error:', err);
         showToast('Google Sign-In cancelled or unavailable.', 'error');
       }
     } else {
-      // Fallback demo account login
       const demoUser: UserProfile = {
-        uid: 'alhalal-cust-001',
-        email: 'customer@alhalalfoot.com',
-        displayName: 'Ahamed Showroom Guest',
+        uid: 'is-cust-001',
+        email: 'customer@italiashoes.com',
+        displayName: 'Customer',
         role: 'customer',
       };
       setUser(demoUser);
-      showToast('Logged in as Showroom Customer (Local Mode)', 'success');
+      showToast('Signed in as Customer (Showroom Demo)', 'success');
     }
   };
 
   const demoAdminLogin = (asAdmin: boolean = true) => {
     if (asAdmin) {
       const adminUser: UserProfile = {
-        uid: 'alhalal-admin-master',
-        email: 'storeadmin@alhalalfoot.com',
-        displayName: 'AL-HALAL Store Manager',
+        uid: 'is-admin-master',
+        email: 'admin@italiashoes.com',
+        displayName: 'ITALIA SHOES Administrator',
         role: 'admin',
       };
       setUser(adminUser);
-      showToast('Logged in as Store Administrator. Full inventory controls active.', 'success');
+      showToast('Signed in as Store Administrator. Full inventory controls active.', 'success');
     } else {
       setUser(null);
       showToast('Signed out of admin session.', 'info');
@@ -613,6 +693,13 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   // Admin Catalog Management
   const addProduct = (product: Product) => {
     setProducts((prev) => [product, ...prev]);
+    if (isFirebaseConfigured && db) {
+      try {
+        setDoc(doc(db, 'products', product.id), product);
+      } catch (e) {
+        console.error(e);
+      }
+    }
     showToast(`Product "${product.name}" created!`, 'success');
   };
 
@@ -623,18 +710,76 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         nextProducts = prev.map((p) => {
           if (p.id === productOrId) {
             const updated = { ...p, ...updates };
-            if (updates?.thumbnail && (!updates.images || updates.images.length === 0)) {
-              updated.images = [updates.thumbnail];
+            // Ensure thumbnail and images are cleanly synchronized
+            if (updates?.images && updates.images.length > 0) {
+              updated.images = updates.images;
+              updated.thumbnail = updates.thumbnail || updates.images[0];
+            } else if (updates?.thumbnail) {
+              const prevImgs = p.images || [];
+              const replaced = prevImgs.map((img) => (img === p.thumbnail ? updates.thumbnail! : img));
+              if (!replaced.includes(updates.thumbnail)) {
+                replaced.unshift(updates.thumbnail);
+              }
+              updated.images = replaced;
+              updated.thumbnail = updates.thumbnail;
+            }
+
+            if (updated.variants && updated.variants.length > 0) {
+              updated.variants = updated.variants.map((v) => ({
+                ...v,
+                images: updated.images,
+              }));
+            }
+
+            if (isFirebaseConfigured && db) {
+              try {
+                setDoc(doc(db, 'products', p.id), updated, { merge: true });
+              } catch (e) {
+                console.error(e);
+              }
             }
             return updated;
           }
           return p;
         });
       } else {
-        nextProducts = prev.map((p) => (p.id === productOrId.id ? { ...p, ...productOrId } : p));
+        nextProducts = prev.map((p) => {
+          if (p.id === productOrId.id) {
+            const updated = { ...p, ...productOrId };
+            if (productOrId.images && productOrId.images.length > 0) {
+              updated.images = productOrId.images;
+              updated.thumbnail = productOrId.thumbnail || productOrId.images[0];
+            } else if (productOrId.thumbnail) {
+              const prevImgs = p.images || [];
+              const replaced = prevImgs.map((img) => (img === p.thumbnail ? productOrId.thumbnail! : img));
+              if (!replaced.includes(productOrId.thumbnail)) {
+                replaced.unshift(productOrId.thumbnail);
+              }
+              updated.images = replaced;
+              updated.thumbnail = productOrId.thumbnail;
+            }
+
+            if (updated.variants && updated.variants.length > 0) {
+              updated.variants = updated.variants.map((v) => ({
+                ...v,
+                images: updated.images,
+              }));
+            }
+
+            if (isFirebaseConfigured && db) {
+              try {
+                setDoc(doc(db, 'products', productOrId.id), updated, { merge: true });
+              } catch (e) {
+                console.error(e);
+              }
+            }
+            return updated;
+          }
+          return p;
+        });
       }
       try {
-        localStorage.setItem('alhalal_products', JSON.stringify(nextProducts));
+        localStorage.setItem('italia_shoes_products', JSON.stringify(nextProducts));
       } catch (err) {
         console.warn('LocalStorage error while saving products:', err);
       }
@@ -647,6 +792,13 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const deleteProduct = (productId: string) => {
     const p = products.find((item) => item.id === productId);
     setProducts((prev) => prev.filter((item) => item.id !== productId));
+    if (isFirebaseConfigured && db) {
+      try {
+        deleteDoc(doc(db, 'products', productId));
+      } catch (e) {
+        console.error(e);
+      }
+    }
     showToast(`Product "${p?.name || productId}" deleted`, 'info');
   };
 
@@ -681,6 +833,13 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const updateSettings = (newSettings: BusinessSettings) => {
     setSettings(newSettings);
+    if (isFirebaseConfigured && db) {
+      try {
+        setDoc(doc(db, 'settings', 'business'), newSettings, { merge: true });
+      } catch (e) {
+        console.error(e);
+      }
+    }
     showToast('Store settings updated', 'success');
   };
 
@@ -690,7 +849,161 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     setBanners(initialBanners);
     setOffers(initialOffers);
     setSettings(initialSettings);
-    showToast('Catalogue restored to demo showroom inventory', 'info');
+    setReviews([]);
+    showToast('Catalog restored to Italia Shoes footwear inventory', 'info');
+  };
+
+  const cleanOldFirestoreDataAndSyncSettings = async (): Promise<{
+    success: boolean;
+    message: string;
+    details: string[];
+  }> => {
+    const details: string[] = [];
+
+    // Always update local settings
+    localStorage.setItem('italia_shoes_settings', JSON.stringify(initialSettings));
+    setSettings(initialSettings);
+    setProducts(demoProducts);
+    setCategories(initialCategories);
+    setBanners(initialBanners);
+    setOffers(initialOffers);
+    setReviews([]);
+
+    if (!isFirebaseConfigured || !db) {
+      details.push('Local storage purged of old data and refreshed with ITALIA SHOES information.');
+      return {
+        success: true,
+        message: 'Settings and catalog synchronized to ITALIA SHOES (Local Showroom Mode).',
+        details,
+      };
+    }
+
+    try {
+      // 1. Create or update settings/business with the exact required schema:
+      const businessSettingsDoc = {
+        businessName: 'ITALIA SHOES',
+        tamilName: '',
+        businessType: 'Shoe Store',
+        phone: '0431 402 0105',
+        address:
+          'M5 - Kings Square Complex, 11th Cross, Thillai Nagar Main Road, Tennur, Tiruchirappalli, Tamil Nadu 620018, India',
+        rating: 3.7,
+        reviewCount: 259,
+        services: ['In-store shopping', 'Delivery'],
+        closingTime: '9:30 PM',
+        active: true,
+        phone1: '0431 402 0105',
+        phone2: '+91 431 402 0105',
+        businessHours: 'Open • Closes at 9:30 PM',
+        announcementText:
+          'ITALIA SHOES • SHOE STORE • IN-STORE SHOPPING & DELIVERY • CALL 0431 402 0105',
+        heroTitle: 'ITALIA SHOES',
+        heroSubtitle:
+          'Step into quality footwear for every occasion. Visit our showroom at Kings Square Complex, Tiruchirappalli or shop online for direct delivery.',
+        tagline: 'Quality Footwear for Everyday Comfort & Style',
+      };
+
+      await setDoc(doc(db, 'settings', 'business'), businessSettingsDoc, { merge: true });
+      details.push('Updated doc "settings/business" with official Italia Shoes information.');
+
+      // 2. Audit and clean old AL-HALAL documents across Firestore collections
+      const collectionsToAudit = [
+        'products',
+        'categories',
+        'banners',
+        'offers',
+        'reviews',
+        'storeInfo',
+        'brands',
+        'projects',
+      ];
+
+      for (const collName of collectionsToAudit) {
+        try {
+          const snap = await getDocs(collection(db, collName));
+          let deleted = 0;
+          for (const d of snap.docs) {
+            const data = d.data();
+            const id = d.id.toLowerCase();
+            const text = JSON.stringify(data).toLowerCase();
+
+            const isOldALHalal =
+              id.includes('alhalal') ||
+              id.includes('al-halal') ||
+              text.includes('al-halal') ||
+              text.includes('alhalal') ||
+              text.includes('foot station') ||
+              text.includes('9655187000') ||
+              text.includes('9787536452') ||
+              text.includes('branded watches') ||
+              text.includes('branded sunglasses');
+
+            if (isOldALHalal) {
+              await deleteDoc(doc(db, collName, d.id));
+              deleted++;
+            }
+          }
+          if (deleted > 0) {
+            details.push(`Cleaned ${deleted} old AL-HALAL document(s) from "${collName}".`);
+          }
+        } catch (auditErr) {
+          console.warn(`Audit check for collection ${collName}:`, auditErr);
+        }
+      }
+
+      // 3. Seed new Italia Shoes footwear products if collection is empty or has old images
+      try {
+        const prodSnap = await getDocs(collection(db, 'products'));
+        let shouldSeed = prodSnap.empty;
+        if (!shouldSeed) {
+          const hasUnsplash = prodSnap.docs.some((d) => {
+            const data = d.data();
+            return (
+              data.thumbnail?.includes('unsplash') ||
+              data.images?.some((im: string) => im.includes('unsplash'))
+            );
+          });
+          if (hasUnsplash || prodSnap.docs.length < 64) {
+            shouldSeed = true;
+          }
+        }
+        if (shouldSeed) {
+          for (const p of demoProducts) {
+            await setDoc(doc(db, 'products', p.id), p);
+          }
+          details.push(`Synchronized ${demoProducts.length} Italia Shoes footwear items with verified photos into Firestore.`);
+        }
+      } catch (e) {
+        console.warn('Product seeding in Firestore:', e);
+      }
+
+      // 4. Seed new Italia Shoes categories if collection is empty
+      try {
+        const catSnap = await getDocs(collection(db, 'categories'));
+        if (catSnap.empty) {
+          for (const c of initialCategories) {
+            await setDoc(doc(db, 'categories', c.id), c);
+          }
+          details.push(`Seeded ${initialCategories.length} footwear categories into Firestore.`);
+        }
+      } catch (e) {
+        console.warn('Category seeding in Firestore:', e);
+      }
+
+      showToast('Firestore data cleanup & Italia Shoes sync complete!', 'success');
+      return {
+        success: true,
+        message: 'Firestore business settings and collections successfully updated for ITALIA SHOES.',
+        details,
+      };
+    } catch (err: any) {
+      console.error('Firestore cleanup error:', err);
+      return {
+        success: false,
+        message: `Error syncing Firestore: ${err?.message || 'Unknown error'}`,
+        details,
+      };
+    }
   };
 
   const approveReview = (reviewId: string) => {
@@ -759,6 +1072,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         updateOffers,
         updateSettings,
         resetToDemoCatalog,
+        cleanOldFirestoreDataAndSyncSettings,
         approveReview,
         deleteReview,
       }}

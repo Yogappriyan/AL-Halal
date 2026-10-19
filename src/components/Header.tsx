@@ -30,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
     products,
     isAdmin,
     user,
+    settings,
   } = useStore();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,13 +46,15 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
 
   const navLinks: { label: string; view: string; param?: string; badge?: string }[] = [
     { label: 'Home', view: 'home' },
-    { label: 'Shop All', view: 'shop' },
-    { label: 'Footwear', view: 'category', param: "Men's Footwear" },
-    { label: 'Watches', view: 'category', param: 'Branded Watches', badge: 'Hot' },
-    { label: 'Sunglasses', view: 'category', param: 'Branded Sunglasses', badge: 'New' },
-    { label: 'Sports', view: 'category', param: 'Sports Shoes' },
-    { label: 'Casual', view: 'category', param: 'Casual Shoes' },
-    { label: 'Offers', view: 'category', param: 'Special Offers' },
+    { label: 'Shop', view: 'shop' },
+    { label: 'Men', view: 'category', param: 'Men' },
+    { label: 'Women', view: 'category', param: 'Women' },
+    { label: 'Sports', view: 'category', param: 'Sports' },
+    { label: 'Casual', view: 'category', param: 'Casual' },
+    { label: 'Sandals', view: 'category', param: 'Sandals' },
+    { label: 'New Arrivals', view: 'category', param: 'New Arrivals', badge: 'New' },
+    { label: 'Offers', view: 'category', param: 'Offers', badge: 'Deals' },
+    { label: 'Contact', view: 'contact' },
   ];
 
   const searchResults = activeSearchQuery.trim()
@@ -97,10 +100,10 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
             className="text-left group flex flex-col focus:outline-none"
           >
             <span className="text-lg sm:text-xl font-black tracking-tighter text-black uppercase leading-none group-hover:opacity-80 transition-opacity">
-              AL-HALAL
+              ITALIA SHOES
             </span>
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-neutral-500 uppercase mt-0.5">
-              A FOOT STATION
+            <span className="text-[10px] sm:text-[11px] font-medium tracking-wider text-neutral-400 uppercase mt-0.5">
+              Shoe Store
             </span>
           </button>
         </div>
@@ -166,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
                   <input
                     id="header-live-search-input"
                     type="text"
-                    placeholder="Search shoes, watches, sunglasses..."
+                    placeholder="Search footwear, sneakers, sports shoes, sandals..."
                     value={activeSearchQuery}
                     onChange={(e) => setActiveSearchQuery(e.target.value)}
                     autoFocus
@@ -315,10 +318,10 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
             <div className="p-5 border-b border-neutral-100 flex items-center justify-between">
               <div>
                 <span className="text-lg font-black tracking-tighter text-black uppercase">
-                  AL-HALAL
+                  ITALIA SHOES
                 </span>
-                <span className="block text-[10px] font-bold tracking-widest text-neutral-500 uppercase">
-                  A FOOT STATION
+                <span className="block text-[10px] font-medium tracking-wider text-neutral-400 uppercase">
+                  Shoe Store
                 </span>
               </div>
               <button
@@ -337,7 +340,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
                   <Search className="w-4 h-4 text-neutral-400 absolute left-3 top-3" />
                   <input
                     type="text"
-                    placeholder="Search shoes, watches, sunglasses..."
+                    placeholder="Search footwear, sneakers, sandals..."
                     value={activeSearchQuery}
                     onChange={(e) => setActiveSearchQuery(e.target.value)}
                     onKeyDown={(e) => {
@@ -432,11 +435,11 @@ export const Header: React.FC<HeaderProps> = ({ currentView, navigateTo }) => {
             <div className="p-4 border-t border-neutral-100 bg-neutral-50 text-xs text-neutral-600">
               <p className="font-semibold text-neutral-900 mb-1">Direct Store Help:</p>
               <a
-                href="tel:+919655187000"
+                href={`tel:${settings.phone || '04314020105'}`}
                 className="flex items-center gap-2 text-black font-bold hover:underline"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>+91 9655187000</span>
+                <span>{settings.phone || '0431 402 0105'}</span>
               </a>
             </div>
           </div>

@@ -18,7 +18,7 @@ interface ShopPageProps {
 }
 
 export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory, navigateTo }) => {
-  const { products, categories, activeSearchQuery, setActiveSearchQuery } = useStore();
+  const { products, categories, activeSearchQuery, setActiveSearchQuery, settings } = useStore();
 
   // Filter States
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory || 'All');
@@ -150,12 +150,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory, navigateTo 
     return list;
   }, [filteredProducts, sortBy]);
 
-  const sizeFilterLabel =
-    selectedCategory === 'Branded Watches'
-      ? 'Dial Size'
-      : selectedCategory === 'Branded Sunglasses'
-      ? 'Frame Size'
-      : 'Size (UK/IND)';
+  const sizeFilterLabel = 'Size (UK/IND)';
 
   return (
     <div id="shop-page-root" className="min-h-screen bg-[#fafafa] py-8 sm:py-12">
@@ -164,7 +159,7 @@ export const ShopPage: React.FC<ShopPageProps> = ({ initialCategory, navigateTo 
         <div className="mb-6 flex flex-col md:flex-row md:items-end justify-between pb-4 border-b border-neutral-200 gap-4">
           <div>
             <span className="text-xs font-bold text-neutral-400 uppercase tracking-widest">
-              AL-HALAL Showroom Catalog
+              {settings.businessName || 'ITALIA SHOES'} Showroom Catalog
             </span>
             <h1 className="text-2xl sm:text-4xl font-black text-black uppercase tracking-tight mt-0.5">
               {selectedCategory === 'All' ? 'SHOP ALL PRODUCTS' : selectedCategory.toUpperCase()}

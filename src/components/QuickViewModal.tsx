@@ -86,8 +86,11 @@ const QuickViewModalContent: React.FC<QuickViewModalContentProps> = ({
           {/* Product Image Box */}
           <div className="bg-[#f7f7f7] rounded-2xl p-6 flex items-center justify-center aspect-square relative">
             <img
-              src={product.thumbnail}
+              src={product.thumbnail || 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png'}
               alt={product.name}
+              onError={(e) => {
+                e.currentTarget.src = 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png';
+              }}
               className="w-full h-full object-contain filter drop-shadow-lg"
               referrerPolicy="no-referrer"
             />

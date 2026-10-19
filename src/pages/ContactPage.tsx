@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useStore } from '../context/StoreContext';
-import { Phone, MapPin, Clock, MessageCircle, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, MapPin, Clock, MessageCircle, Send, CheckCircle2, Store, Truck } from 'lucide-react';
 import { openWhatsApp } from '../utils/whatsapp';
 
 export const ContactPage: React.FC = () => {
   const { settings, showToast } = useStore();
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+
+  const businessName = settings.businessName || 'ITALIA SHOES';
+  const phone = settings.phone || '0431 402 0105';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,7 +18,7 @@ export const ContactPage: React.FC = () => {
       return;
     }
     setSubmitted(true);
-    showToast('Your message has been sent to our showroom staff.', 'success');
+    showToast(`Your message has been received. Our team will contact you at ${formData.phone}.`, 'success');
   };
 
   return (
@@ -23,13 +26,13 @@ export const ContactPage: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 pb-4 border-b border-neutral-200">
           <span className="text-xs font-bold text-neutral-400 uppercase tracking-widest">
-            Get In Touch
+            Shoe Store • Tiruchirappalli
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-black uppercase tracking-tight mt-1">
-            CONTACT AL-HALAL A FOOT STATION
+            CONTACT {businessName}
           </h1>
           <p className="text-xs sm:text-sm text-neutral-600 mt-1">
-            Need sizing advice or looking for a specific model? Reach out directly.
+            Visit our physical shoe store or call our helpline for shoe styles, sizes, and delivery inquiries.
           </p>
         </div>
 
@@ -39,10 +42,10 @@ export const ContactPage: React.FC = () => {
             <div className="space-y-6">
               <div>
                 <span className="text-xl font-black tracking-tight uppercase block">
-                  AL-HALAL A FOOT STATION
+                  {businessName}
                 </span>
                 <span className="text-xs text-neutral-400 uppercase tracking-widest">
-                  Footwear Showroom & Store
+                  {settings.businessType || 'Shoe Store'}
                 </span>
               </div>
 
@@ -50,7 +53,7 @@ export const ContactPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-neutral-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block">Address:</strong>
+                    <strong className="text-white block">Store Address:</strong>
                     <span>{settings.address}</span>
                   </div>
                 </div>
@@ -58,14 +61,16 @@ export const ContactPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-neutral-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block">Call Lines:</strong>
+                    <strong className="text-white block">Phone Helpline:</strong>
                     <div className="flex flex-col gap-1 mt-1 text-white font-bold">
-                      <a href={`tel:${settings.phone1}`} className="hover:underline">
-                        {settings.phone1}
+                      <a href={`tel:${phone}`} className="hover:underline text-sm text-emerald-400">
+                        {phone}
                       </a>
-                      <a href={`tel:${settings.phone2}`} className="hover:underline">
-                        {settings.phone2}
-                      </a>
+                      {settings.phone2 && (
+                        <a href={`tel:${settings.phone2}`} className="hover:underline text-neutral-300">
+                          {settings.phone2}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -73,26 +78,47 @@ export const ContactPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-neutral-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block">Showroom Timings:</strong>
-                    <span>{settings.businessHours}</span>
+                    <strong className="text-white block">Business Hours:</strong>
+                    <span>Open • Closes at {settings.closingTime || '9:30 PM'}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Store className="w-5 h-5 text-neutral-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block">Services:</strong>
+                    <div className="flex items-center gap-3 text-xs text-neutral-300 mt-0.5">
+                      <span>✓ In-store shopping</span>
+                      <span>✓ Delivery</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() =>
-                openWhatsApp(
-                  'Hello AL-HALAL A FOOT STATION! I would like to enquire about your footwear collection.',
-                  settings.whatsapp
-                )
-              }
-              className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-2 shadow"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>Instant WhatsApp Enquiry</span>
-            </button>
+            {settings.whatsapp ? (
+              <button
+                type="button"
+                onClick={() =>
+                  openWhatsApp(
+                    `Hello ${businessName}! I would like to enquire about your footwear collection and sizes.`,
+                    settings.whatsapp
+                  )
+                }
+                className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-2 shadow"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Instant WhatsApp Enquiry</span>
+              </button>
+            ) : (
+              <a
+                href={`tel:${phone}`}
+                className="w-full py-3.5 px-4 bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors flex items-center justify-center gap-2 shadow"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Store Helpline ({phone})</span>
+              </a>
+            )}
           </div>
 
           {/* Form Card */}
@@ -102,8 +128,7 @@ export const ContactPage: React.FC = () => {
                 <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto" />
                 <h3 className="text-lg font-black uppercase text-black">Message Sent!</h3>
                 <p className="text-xs text-neutral-500 max-w-sm mx-auto">
-                  Thank you for reaching out to AL-HALAL A FOOT STATION. Our team will get back to
-                  you promptly on your phone number.
+                  Thank you for contacting {businessName}. Our team will get back to you promptly on your phone number.
                 </p>
                 <button
                   type="button"
@@ -147,14 +172,14 @@ export const ContactPage: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-bold text-neutral-700 uppercase mb-1">
-                    Message / Shoe Model of Interest *
+                    Message / Shoe Size or Model *
                   </label>
                   <textarea
                     rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about the size, style, or query you have..."
+                    placeholder="Ask about size availability, footwear models, or store directions..."
                     className="w-full px-4 py-2.5 bg-[#fafafa] border border-neutral-200 rounded-xl text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-black"
                   />
                 </div>

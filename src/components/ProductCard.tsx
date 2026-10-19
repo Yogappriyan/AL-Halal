@@ -98,8 +98,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, navigateTo })
 
         {/* Footwear Image */}
         <img
-          src={displayImage}
+          src={displayImage || 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png'}
           alt={product.name}
+          onError={(e) => {
+            e.currentTarget.src = 'https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png';
+          }}
           className="w-full h-full object-contain filter drop-shadow-md transform group-hover:scale-105 transition-transform duration-500 ease-out"
           referrerPolicy="no-referrer"
           loading="lazy"

@@ -1,6 +1,6 @@
 {
-  "name": "AL-HALAL A FOOT STATION",
-  "description": "Premium showroom offering authentic footwear, branded luxury watches, and designer sunglasses.",
+  "name": "ITALIA SHOES",
+  "description": "Shoe Store in Tiruchirappalli offering in-store shopping and delivery for men's, women's, sports, casual footwear, and comfort sandals.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

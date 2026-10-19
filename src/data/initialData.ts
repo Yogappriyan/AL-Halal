@@ -1,163 +1,146 @@
 import { Product, Category, Banner, Offer, BusinessSettings } from '../types';
 
 export const initialSettings: BusinessSettings = {
-  businessName: 'AL-HALAL A FOOT STATION',
-  tagline: 'Premium Footwear, Branded Watches & Designer Sunglasses',
-  phone1: '+91 9655187000',
-  phone2: '+91 97875 36452',
-  whatsapp: '+919655187000',
-  address: 'AL-HALAL A FOOT STATION, Main Footwear & Accessories Market Road, India',
-  businessHours: 'Monday - Sunday: 10:00 AM – 10:00 PM',
-  instagram: 'alhalalfoot_truck',
-  youtube: 'https://youtube.com/@alhalalfoot_truck',
-  facebook: 'https://facebook.com/alhalalfoot',
-  googleMapsUrl: 'https://maps.google.com/?q=AL-HALAL+FOOTWEAR',
-  announcementText: 'AL-HALAL • FOOTWEAR • BRANDED WATCHES • BRANDED SUNGLASSES • CALL +91 9655187000',
-  heroTitle: 'STEP INTO ELEVATED STYLE',
-  heroSubtitle: 'Discover premier footwear, iconic branded watches, and UV-protected designer sunglasses from our showroom collection.',
+  businessName: 'ITALIA SHOES',
+  tamilName: '',
+  businessType: 'Shoe Store',
+  phone: '0431 402 0105',
+  phone1: '0431 402 0105',
+  phone2: '+91 431 402 0105',
+  address:
+    'M5 - Kings Square Complex, 11th Cross, Thillai Nagar Main Road, Tennur, Tiruchirappalli, Tamil Nadu 620018, India',
+  rating: 3.7,
+  reviewCount: 259,
+  services: ['In-store shopping', 'Delivery'],
+  closingTime: '9:30 PM',
+  businessHours: 'Open • Closes at 9:30 PM',
+  active: true,
+  tagline: 'Quality Footwear for Everyday Comfort & Style',
+  whatsapp: '',
+  instagram: '',
+  youtube: '',
+  facebook: '',
+  googleMapsUrl: '',
+  email: '',
+  website: '',
+  announcementText:
+    'ITALIA SHOES • SHOE STORE • IN-STORE SHOPPING & DELIVERY • CALL 0431 402 0105',
+  heroTitle: 'ITALIA SHOES',
+  heroSubtitle:
+    'Step into quality footwear for every occasion. Visit our showroom at Kings Square Complex, Tiruchirappalli or shop online for direct delivery.',
 };
 
 export const initialCategories: Category[] = [
   {
-    id: 'branded-watches',
-    name: 'Branded Watches',
-    slug: 'branded-watches',
-    image: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    description: 'Authentic chronograph, sports, and luxury designer timepieces from top global brands.',
+    id: 'men',
+    name: 'Men',
+    slug: 'men',
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop',
+    description: "Men's footwear collection including formal, casual, athletic, and everyday sneakers.",
     active: true,
     order: 1,
-    itemCount: 15,
+    itemCount: 12,
   },
   {
-    id: 'branded-sunglasses',
-    name: 'Branded Sunglasses',
-    slug: 'branded-sunglasses',
-    image: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    description: 'Polarized, UV400, and iconic aviator & wayfarer designer eyewear collections.',
+    id: 'women',
+    name: 'Women',
+    slug: 'women',
+    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000&auto=format&fit=crop',
+    description: "Comfortable and stylish women's footwear designed for daily ease and active steps.",
     active: true,
     order: 2,
-    itemCount: 14,
+    itemCount: 8,
   },
   {
-    id: 'mens-footwear',
-    name: "Men's Footwear",
-    slug: 'mens-footwear',
-    image: 'https://i.postimg.cc/yYZxNThc/Screenshot-2026-09-13-183440.png',
-    description: 'Refined casuals, premium loafers, and formal footwear engineered for endurance.',
+    id: 'sports',
+    name: 'Sports',
+    slug: 'sports',
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop',
+    description: 'High-cushion running, training, and athletic sports shoes for peak performance.',
     active: true,
     order: 3,
-    itemCount: 18,
+    itemCount: 10,
   },
   {
-    id: 'sports-shoes',
-    name: 'Sports Shoes',
-    slug: 'sports-shoes',
-    image: 'https://i.postimg.cc/053rx4S7/Screenshot-2026-09-13-183353.png',
-    description: 'High-cushion runners, training shoes, and dynamic street performance pairs.',
-    active: true,
-    order: 2,
-    itemCount: 24,
-  },
-  {
-    id: 'casual-footwear',
-    name: 'Casual Shoes',
-    slug: 'casual-footwear',
-    image: 'https://i.postimg.cc/vTpmz1y0/Screenshot-2026-09-13-183230.png',
-    description: 'Versatile low-tops, canvas sneakers, and everyday stylish footwear.',
-    active: true,
-    order: 3,
-    itemCount: 30,
-  },
-  {
-    id: 'sandals',
-    name: 'Comfort Sandals',
-    slug: 'sandals',
-    image: 'https://i.postimg.cc/xTz8dPGy/Screenshot-2026-09-13-183523.png',
-    description: 'Ergonomic footbeds, breathable straps, and rugged outdoor sandals.',
+    id: 'casual',
+    name: 'Casual',
+    slug: 'casual',
+    image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1000&auto=format&fit=crop',
+    description: 'Everyday sneakers, loafers, and lifestyle casual shoes for maximum comfort.',
     active: true,
     order: 4,
     itemCount: 14,
   },
   {
-    id: 'clogs',
-    name: 'Clogs & Slip-ons',
-    slug: 'clogs',
-    image: 'https://i.postimg.cc/MpJTfjtF/Screenshot-2026-09-13-183644.png',
-    description: 'Ultra-lightweight EVA clogs, slip-on mules, and casual indoor/outdoor wear.',
+    id: 'sandals',
+    name: 'Sandals',
+    slug: 'sandals',
+    image: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?q=80&w=1000&auto=format&fit=crop',
+    description: 'Ergonomic, breathable, and lightweight comfort sandals and daily slides.',
     active: true,
     order: 5,
-    itemCount: 12,
-  },
-  {
-    id: 'everyday-footwear',
-    name: 'Everyday Footwear',
-    slug: 'everyday-footwear',
-    image: 'https://i.postimg.cc/Dw3Z4bBw/Screenshot-2026-09-13-183844.png',
-    description: 'Reliable all-day comfort shoes made for Indian urban lifestyles.',
-    active: true,
-    order: 6,
-    itemCount: 16,
+    itemCount: 8,
   },
   {
     id: 'new-arrivals',
     name: 'New Arrivals',
     slug: 'new-arrivals',
-    image: 'https://i.postimg.cc/Jz3hN42t/Screenshot-2026-09-13-184410.png',
-    description: 'Latest season showroom editions freshly arrived on our shelves.',
+    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop',
+    description: 'Latest footwear additions and fresh designs just arrived in store.',
     active: true,
-    order: 7,
-    itemCount: 10,
+    order: 6,
+    itemCount: 6,
   },
   {
     id: 'offers',
-    name: 'Special Offers',
+    name: 'Offers',
     slug: 'offers',
-    image: 'https://i.postimg.cc/BZytszFx/Screenshot-2026-09-13-183408.png',
-    description: 'Exclusive seasonal markdowns on premier footwear models.',
+    image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?q=80&w=1000&auto=format&fit=crop',
+    description: 'Exclusive seasonal offers, special discounts, and value footwear bundles.',
     active: true,
-    order: 8,
-    itemCount: 8,
+    order: 7,
+    itemCount: 5,
   },
 ];
 
 export const initialBanners: Banner[] = [
   {
     id: 'banner-1',
-    image: 'https://i.postimg.cc/vTpmz1y0/Screenshot-2026-09-13-183230.png',
-    title: 'STEP INTO YOUR STYLE',
-    subtitle: 'Discover footwear for everyday comfort, street style and active lifestyles.',
-    buttonText: 'SHOP FOOTWEAR',
+    image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?q=80&w=1600&auto=format&fit=crop',
+    title: 'ITALIA SHOES',
+    subtitle: 'Quality Footwear • In-Store Shopping & Direct Delivery',
+    buttonText: 'SHOP ALL SHOES',
     buttonLink: '/shop',
     active: true,
     order: 1,
   },
   {
     id: 'banner-2',
-    image: 'https://i.postimg.cc/053rx4S7/Screenshot-2026-09-13-183353.png',
-    title: 'NEW SHOWROOM ARRIVALS',
-    subtitle: 'Experience breathable sole innovations and durable urban silhouettes.',
-    buttonText: 'EXPLORE NEW ARRIVALS',
-    buttonLink: '/category/new-arrivals',
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600&auto=format&fit=crop',
+    title: 'SPORTS & RUNNING',
+    subtitle: 'Dynamic Arch Support & High-Impact Cushioning',
+    buttonText: 'EXPLORE SPORTS',
+    buttonLink: '/category/Sports',
     active: true,
     order: 2,
   },
   {
     id: 'banner-3',
-    image: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    title: 'BRANDED WATCHES SHOWCASE',
-    subtitle: 'Authentic chronographs & luxury wristwear from Fossil, Casio, Titan & Tommy Hilfiger.',
-    buttonText: 'EXPLORE WATCHES',
-    buttonLink: '/category/Branded Watches',
+    image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1600&auto=format&fit=crop',
+    title: 'CASUAL & STREETWEAR',
+    subtitle: 'Clean Styling for Everyday Comfort and Ease',
+    buttonText: 'DISCOVER CASUAL',
+    buttonLink: '/category/Casual',
     active: true,
     order: 3,
   },
   {
     id: 'banner-4',
-    image: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    title: 'ICONIC DESIGNER SUNGLASSES',
-    subtitle: 'Polarized UV400 aviators, wayfarers, and modern street frames from Ray-Ban, Oakley & Carrera.',
-    buttonText: 'SHOP SUNGLASSES',
-    buttonLink: '/category/Branded Sunglasses',
+    image: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?q=80&w=1600&auto=format&fit=crop',
+    title: 'COMFORT SANDALS',
+    subtitle: 'Ergonomic Slides and Durable All-Weather Sandals',
+    buttonText: 'SHOP SANDALS',
+    buttonLink: '/category/Sandals',
     active: true,
     order: 4,
   },
@@ -166,941 +149,5996 @@ export const initialBanners: Banner[] = [
 export const initialOffers: Offer[] = [
   {
     id: 'offer-1',
-    title: 'Showroom Welcome Discount',
-    description: 'Flat ₹200 OFF on orders above ₹1,499. Apply code at checkout.',
-    discountType: 'flat',
-    discountValue: 200,
-    couponCode: 'HALAL200',
-    minSpend: 1499,
+    title: 'Showroom Fitting Special',
+    description: 'Enjoy 10% instant discount on orders above ₹1,999 in-store or online.',
+    discountType: 'percentage',
+    discountValue: 10,
+    couponCode: 'ITALIA10',
+    minSpend: 1999,
     startDate: '2026-01-01',
     endDate: '2026-12-31',
     active: true,
   },
   {
     id: 'offer-2',
-    title: 'Sports & Active Season Sale',
-    description: 'Get up to 25% OFF on select sports running shoes.',
-    discountType: 'percentage',
-    discountValue: 25,
-    couponCode: 'SPORT25',
-    minSpend: 999,
+    title: 'Direct Delivery Flat Discount',
+    description: 'Get flat ₹300 off on select sports and casual running footwear.',
+    discountType: 'flat',
+    discountValue: 300,
+    couponCode: 'ITALIA300',
+    minSpend: 2499,
     startDate: '2026-01-01',
     endDate: '2026-12-31',
     active: true,
   },
 ];
 
+export const STORE_PRODUCT_IMAGES: string[] = [
+  "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png",
+  "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png",
+  "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png",
+  "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png",
+  "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png",
+  "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png",
+  "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png",
+  "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png",
+  "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png",
+  "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png",
+  "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png",
+  "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png",
+  "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png",
+  "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png",
+  "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png",
+  "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png",
+  "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png",
+  "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png",
+  "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png",
+  "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png",
+  "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png",
+  "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png",
+  "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png",
+  "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png",
+  "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png",
+  "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png",
+  "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png",
+  "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png",
+  "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png",
+  "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png",
+  "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png",
+  "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png",
+  "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png",
+  "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png",
+  "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png",
+  "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png",
+  "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png",
+  "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png",
+  "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png",
+  "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png",
+  "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png",
+  "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png",
+  "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png",
+  "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png",
+  "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png",
+  "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png",
+  "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png",
+  "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png",
+  "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png",
+  "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png",
+  "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png",
+  "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png",
+  "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png",
+  "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png",
+  "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png",
+  "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png",
+  "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png",
+  "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png",
+  "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png",
+  "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png",
+  "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png",
+  "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png",
+  "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png",
+  "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png"
+];
+
 export const demoProducts: Product[] = [
   {
-    id: 'prod-001',
-    name: "Al-Halal Men's Urban Flex Casual Shoe",
-    slug: 'al-halal-mens-urban-flex-casual-shoe',
-    brand: 'AL-HALAL',
-    category: 'Casual Shoes',
-    subcategory: 'Low-Top Sneakers',
-    gender: 'Men',
-    description:
-      'Engineered with high-density EVA shock absorption and flexible synthetic leather accents, this shoe is built for long walking comfort and casual urban flair.',
-    shortDescription: 'Lightweight urban street shoe with cushioned responsive footbed.',
-    price: 1899,
-    salePrice: 1299,
-    discountPercentage: 31,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/vTpmz1y0/Screenshot-2026-09-13-183230.png',
-      'https://i.postimg.cc/tRf7yc6Q/Screenshot-2026-09-13-183236.png',
+    "id": "prod-is-001",
+    "name": "Urban Flex Low-Top Sneaker",
+    "slug": "urban-flex-low-top-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2499,
+    "salePrice": 1999,
+    "discountPercentage": 20,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Urban Flex Low-Top Sneaker from ITALIA SHOES. Engineered with breathable knit & vegan leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Low-Top with Breathable Knit & Vegan Leather and high-durability cushioned sole.",
+    "sku": "IS-CAS-001",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png",
+    "images": [
+      "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png",
+      "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png",
+      "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png"
     ],
-    thumbnail: 'https://i.postimg.cc/vTpmz1y0/Screenshot-2026-09-13-183230.png',
-    variants: [
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Triple Black',
-        colorCode: '#111111',
-        images: [
-          'https://i.postimg.cc/vTpmz1y0/Screenshot-2026-09-13-183230.png',
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png",
+          "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png"
         ],
-        sizes: { '6': 4, '7': 7, '8': 9, '9': 5, '10': 2, '11': 0 },
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
       },
       {
-        color: 'Pure White',
-        colorCode: '#F5F5F5',
-        images: [
-          'https://i.postimg.cc/tRf7yc6Q/Screenshot-2026-09-13-183236.png',
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png",
+          "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png"
         ],
-        sizes: { '6': 2, '7': 5, '8': 6, '9': 4, '10': 1, '11': 1 },
-      },
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
     ],
-    sizes: ['6', '7', '8', '9', '10', '11'],
-    colors: ['Triple Black', 'Pure White'],
-    stock: 27,
-    sizeStock: { '6': 6, '7': 12, '8': 15, '9': 9, '10': 3, '11': 1 },
-    sizeSystem: 'India',
-    material: 'Breathable Canvas & Microfiber',
-    style: 'Low Top Lace-up',
-    features: ['High-traction grooved outsole', 'Padded collar', 'Memory foam insole', 'Water-resistant toe cap'],
-    sku: 'AH-UBF-001',
-    featured: true,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-01T10:00:00.000Z',
-    updatedAt: '2026-03-10T14:30:00.000Z',
+    "material": "Breathable Knit & Vegan Leather",
+    "style": "Low-Top",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-002',
-    name: 'Air Sprint Pro Sports Running Shoe',
-    slug: 'air-sprint-pro-sports-running-shoe',
-    brand: 'AL-HALAL SPORT',
-    category: 'Sports Shoes',
-    subcategory: 'Running & Training',
-    gender: 'Men',
-    description:
-      'Delivers dynamic propulsion and high impact energy return with our custom multi-cell air-cushioned midsole. Ideal for jogging, fitness workouts, and all-day active standing.',
-    shortDescription: 'Air-cushioned athletic runner with breathable micro-mesh structure.',
-    price: 2499,
-    salePrice: 1699,
-    discountPercentage: 32,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/053rx4S7/Screenshot-2026-09-13-183353.png',
-      'https://i.postimg.cc/BZytszFx/Screenshot-2026-09-13-183408.png',
+    "id": "prod-is-002",
+    "name": "Air Sprint Pro Runner",
+    "slug": "air-sprint-pro-runner",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3299,
+    "salePrice": 2499,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Air Sprint Pro Runner from ITALIA SHOES. Engineered with engineered aeroflow mesh and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Running Shoe with Engineered Aeroflow Mesh and high-durability cushioned sole.",
+    "sku": "IS-SPO-002",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png",
+    "images": [
+      "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png",
+      "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png",
+      "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png"
     ],
-    thumbnail: 'https://i.postimg.cc/053rx4S7/Screenshot-2026-09-13-183353.png',
-    variants: [
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Crimson Red & Black',
-        colorCode: '#B91C1C',
-        images: [
-          'https://i.postimg.cc/053rx4S7/Screenshot-2026-09-13-183353.png',
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png",
+          "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png"
         ],
-        sizes: { '6': 3, '7': 8, '8': 10, '9': 6, '10': 0, '11': 0 },
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
       },
       {
-        color: 'Stealth Grey',
-        colorCode: '#4B5563',
-        images: [
-          'https://i.postimg.cc/BZytszFx/Screenshot-2026-09-13-183408.png',
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png",
+          "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png"
         ],
-        sizes: { '6': 4, '7': 6, '8': 7, '9': 3, '10': 2, '11': 0 },
-      },
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
     ],
-    sizes: ['6', '7', '8', '9', '10', '11'],
-    colors: ['Crimson Red & Black', 'Stealth Grey'],
-    stock: 27,
-    sizeStock: { '6': 7, '7': 14, '8': 17, '9': 9, '10': 2, '11': 0 },
-    sizeSystem: 'India',
-    material: 'Engineered Knit Mesh & TPU Support',
-    style: 'Performance Runner',
-    features: ['Reinforced heel stabilizer', 'Air cushioned sole', 'Anti-slip rubber outsole', 'Moisture-wicking lining'],
-    sku: 'AH-SPR-002',
-    featured: true,
-    newArrival: true,
-    bestSeller: false,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-02T10:00:00.000Z',
-    updatedAt: '2026-03-11T12:00:00.000Z',
+    "material": "Engineered Aeroflow Mesh",
+    "style": "Running Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-003',
-    name: 'Classic Men’s Comfort Slip-on Loafer',
-    slug: 'classic-mens-comfort-slip-on-loafer',
-    brand: 'AL-HALAL',
-    category: "Men's Footwear",
-    subcategory: 'Slip-ons & Loafers',
-    gender: 'Men',
-    description:
-      'Classic penny-front design featuring supple vegan suede uppers, cushioned arch support, and lightweight thermoplastic rubber driving soles for smooth daily wear.',
-    shortDescription: 'Timeless slip-on loafer crafted with flexible arch support.',
-    price: 1599,
-    salePrice: 1199,
-    discountPercentage: 25,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/yYZxNThc/Screenshot-2026-09-13-183440.png',
-      'https://i.postimg.cc/VsT51htW/Screenshot-2026-09-13-183418.png',
+    "id": "prod-is-003",
+    "name": "Heritage Venetian Slip-On Loafer",
+    "slug": "heritage-venetian-slip-on-loafer",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 2999,
+    "salePrice": 2299,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Heritage Venetian Slip-On Loafer from ITALIA SHOES. Engineered with handcrafted synthetic leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Loafer with Handcrafted Synthetic Leather and high-durability cushioned sole.",
+    "sku": "IS-MEN-003",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png",
+    "images": [
+      "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png",
+      "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png",
+      "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png"
     ],
-    thumbnail: 'https://i.postimg.cc/yYZxNThc/Screenshot-2026-09-13-183440.png',
-    variants: [
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Coffee Brown',
-        colorCode: '#4A2E18',
-        images: [
-          'https://i.postimg.cc/yYZxNThc/Screenshot-2026-09-13-183440.png',
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/zGK0wfDV/Screenshot-2026-09-21-231647.png",
+          "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png"
         ],
-        sizes: { '6': 3, '7': 5, '8': 6, '9': 4, '10': 2 },
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
       },
       {
-        color: 'Charcoal Black',
-        colorCode: '#1C1917',
-        images: [
-          'https://i.postimg.cc/VsT51htW/Screenshot-2026-09-13-183418.png',
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png",
+          "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png"
         ],
-        sizes: { '6': 2, '7': 6, '8': 8, '9': 5, '10': 0 },
-      },
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
     ],
-    sizes: ['6', '7', '8', '9', '10'],
-    colors: ['Coffee Brown', 'Charcoal Black'],
-    stock: 20,
-    sizeStock: { '6': 5, '7': 11, '8': 14, '9': 9, '10': 2 },
-    sizeSystem: 'India',
-    material: 'Soft Vegan Suede & Leatherette',
-    style: 'Driving Loafer',
-    features: ['Elasticated gussets for easy on/off', 'Anatomical insole', 'Shock absorbing sole'],
-    sku: 'AH-SLP-003',
-    featured: true,
-    newArrival: false,
-    bestSeller: true,
-    offer: false,
-    status: 'active',
-    createdAt: '2026-03-03T10:00:00.000Z',
-    updatedAt: '2026-03-12T11:00:00.000Z',
+    "material": "Handcrafted Synthetic Leather",
+    "style": "Loafer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-004',
-    name: 'Hydro-Trek Ergonomic Comfort Sandal',
-    slug: 'hydro-trek-ergonomic-comfort-sandal',
-    brand: 'AL-HALAL',
-    category: 'Sandals',
-    subcategory: 'Outdoor Sandals',
-    gender: 'Men',
-    description:
-      'Engineered for warm-weather exploration and daily Indian climate conditions. Features quick-drying adjustable hook-and-loop straps and molded contoured footbeds.',
-    shortDescription: 'All-terrain strapped sandal with molded orthopedic arch contour.',
-    price: 1299,
-    salePrice: 899,
-    discountPercentage: 30,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/xTz8dPGy/Screenshot-2026-09-13-183523.png',
-      'https://i.postimg.cc/9F70fBPd/Screenshot-2026-09-13-183513.png',
+    "id": "prod-is-004",
+    "name": "Aero-Stride Cushioned Sandal",
+    "slug": "aero-stride-cushioned-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1899,
+    "salePrice": 1499,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Aero-Stride Cushioned Sandal from ITALIA SHOES. Engineered with hydro-resistant eva & webbing and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Ergonomic Sandal with Hydro-Resistant EVA & Webbing and high-durability cushioned sole.",
+    "sku": "IS-SAN-004",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png",
+    "images": [
+      "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png",
+      "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png",
+      "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png"
     ],
-    thumbnail: 'https://i.postimg.cc/xTz8dPGy/Screenshot-2026-09-13-183523.png',
-    variants: [
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Olive Green & Black',
-        colorCode: '#3F4A3C',
-        images: [
-          'https://i.postimg.cc/xTz8dPGy/Screenshot-2026-09-13-183523.png',
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/HkXB0LWj/Screenshot-2026-09-21-231651.png",
+          "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png"
         ],
-        sizes: { '6': 5, '7': 8, '8': 10, '9': 6, '10': 3 },
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
       },
       {
-        color: 'Navy Blue',
-        colorCode: '#1E3A8A',
-        images: [
-          'https://i.postimg.cc/9F70fBPd/Screenshot-2026-09-13-183513.png',
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png",
+          "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png"
         ],
-        sizes: { '6': 4, '7': 6, '8': 7, '9': 5, '10': 1 },
-      },
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
     ],
-    sizes: ['6', '7', '8', '9', '10'],
-    colors: ['Olive Green & Black', 'Navy Blue'],
-    stock: 32,
-    sizeStock: { '6': 9, '7': 14, '8': 17, '9': 11, '10': 4 },
-    sizeSystem: 'India',
-    material: 'Hydrophobic Webbing & Phylon Sole',
-    style: 'Active Strapped Sandal',
-    features: ['Dual Velcro fastening', 'Deep heel cup', 'Wet-surface skid protection', 'Washable construction'],
-    sku: 'AH-SAN-004',
-    featured: false,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-04T10:00:00.000Z',
-    updatedAt: '2026-03-12T15:00:00.000Z',
+    "material": "Hydro-Resistant EVA & Webbing",
+    "style": "Ergonomic Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-005',
-    name: 'Cloud-Stride Foam Lifestyle Clog',
-    slug: 'cloud-stride-foam-lifestyle-clog',
-    brand: 'AL-HALAL',
-    category: 'Clogs & Slip-ons',
-    subcategory: 'Ventilated Clogs',
-    gender: 'Unisex',
-    description:
-      'Ultra-light injection molded EVA foam clog with pivotable heel strap. Maximum breathability ports allow air and water to pass through effortlessly.',
-    shortDescription: 'Featherlight waterproof clog designed for non-stop comfort.',
-    price: 999,
-    salePrice: 699,
-    discountPercentage: 30,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/MpJTfjtF/Screenshot-2026-09-13-183644.png',
-      'https://i.postimg.cc/2SN6LBTc/Screenshot-2026-09-13-183633.png',
+    "id": "prod-is-005",
+    "name": "Sleek Street Low-Profile Sneaker",
+    "slug": "sleek-street-low-profile-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2299,
+    "salePrice": 1799,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Sleek Street Low-Profile Sneaker from ITALIA SHOES. Engineered with soft comfort upper & cushioned insole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Lifestyle Sneaker with Soft Comfort Upper & Cushioned Insole and high-durability cushioned sole.",
+    "sku": "IS-WOM-005",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png",
+    "images": [
+      "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png",
+      "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png",
+      "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png"
     ],
-    thumbnail: 'https://i.postimg.cc/MpJTfjtF/Screenshot-2026-09-13-183644.png',
-    variants: [
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 22,
+      "5": 27,
+      "6": 14,
+      "7": 19,
+      "8": 24
+    },
+    "stock": 106,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Bone White',
-        colorCode: '#E5E7EB',
-        images: [
-          'https://i.postimg.cc/MpJTfjtF/Screenshot-2026-09-13-183644.png',
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/jSPZ6jqw/Screenshot-2026-09-21-231656.png",
+          "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png"
         ],
-        sizes: { '6': 6, '7': 9, '8': 12, '9': 8, '10': 4 },
+        "sizes": {
+          "4": 22,
+          "5": 27,
+          "6": 14,
+          "7": 19,
+          "8": 24
+        }
       },
       {
-        color: 'Matte Black',
-        colorCode: '#111827',
-        images: [
-          'https://i.postimg.cc/2SN6LBTc/Screenshot-2026-09-13-183633.png',
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png",
+          "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png"
         ],
-        sizes: { '6': 5, '7': 8, '8': 10, '9': 6, '10': 0 },
-      },
+        "sizes": {
+          "4": 22,
+          "5": 27,
+          "6": 14,
+          "7": 19,
+          "8": 24
+        }
+      }
     ],
-    sizes: ['6', '7', '8', '9', '10'],
-    colors: ['Bone White', 'Matte Black'],
-    stock: 39,
-    sizeStock: { '6': 11, '7': 17, '8': 22, '9': 14, '10': 4 },
-    sizeSystem: 'India',
-    material: 'Cushioned Closed-Cell EVA Resin',
-    style: 'Ventilated Slide Clog',
-    features: ['Rotating heel strap for secure fit', 'Odor-resistant', 'Easy rinse and wipe clean', 'Massaging footbed nubs'],
-    sku: 'AH-CLG-005',
-    featured: true,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-05T10:00:00.000Z',
-    updatedAt: '2026-03-12T16:00:00.000Z',
+    "material": "Soft Comfort Upper & Cushioned Insole",
+    "style": "Lifestyle Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-006',
-    name: 'Velocity Street Skate Sneaker',
-    slug: 'velocity-street-skate-sneaker',
-    brand: 'AL-HALAL',
-    category: 'Casual Shoes',
-    subcategory: 'Streetwear Footwear',
-    gender: 'Unisex',
-    description:
-      'Classic vulcanized low silhouette featuring reinforced double-stitched eyelets, abrasion-resistant gum rubber outsoles, and durable padded collar.',
-    shortDescription: 'Iconic street sneaker with vulcanized waffle-grip sole.',
-    price: 1799,
-    salePrice: 1349,
-    discountPercentage: 25,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/DfDmFNGK/Screenshot-2026-09-13-183308.png',
-      'https://i.postimg.cc/yxwNPJKr/Screenshot-2026-09-13-183313.png',
+    "id": "prod-is-006",
+    "name": "Trailblazer All-Terrain Trainer",
+    "slug": "trailblazer-all-terrain-trainer",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3499,
+    "salePrice": 2799,
+    "discountPercentage": 20,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Trailblazer All-Terrain Trainer from ITALIA SHOES. Engineered with high-traction grip rubber sole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Trail & Gym Shoe with High-Traction Grip Rubber Sole and high-durability cushioned sole.",
+    "sku": "IS-SPO-006",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png",
+    "images": [
+      "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png",
+      "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png",
+      "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png"
     ],
-    thumbnail: 'https://i.postimg.cc/DfDmFNGK/Screenshot-2026-09-13-183308.png',
-    variants: [
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 25,
+      "7": 12,
+      "8": 17,
+      "9": 22,
+      "10": 27,
+      "11": 14
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Monochrome Black/White',
-        colorCode: '#000000',
-        images: [
-          'https://i.postimg.cc/DfDmFNGK/Screenshot-2026-09-13-183308.png',
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/L8LNks4P/Screenshot-2026-09-21-231700.png",
+          "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png"
         ],
-        sizes: { '6': 3, '7': 6, '8': 8, '9': 4, '10': 2 },
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
       },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png",
+          "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      }
     ],
-    sizes: ['6', '7', '8', '9', '10'],
-    colors: ['Monochrome Black/White'],
-    stock: 23,
-    sizeStock: { '6': 3, '7': 6, '8': 8, '9': 4, '10': 2 },
-    sizeSystem: 'India',
-    material: 'Heavy 12oz Cotton Canvas',
-    style: 'Low-profile Skate Shoe',
-    features: ['Vulcanized gum rubber sole', 'Reinforced toe cap', 'Die-cut EVA footbed'],
-    sku: 'AH-SKT-006',
-    featured: false,
-    newArrival: false,
-    bestSeller: false,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-06T10:00:00.000Z',
-    updatedAt: '2026-03-12T17:00:00.000Z',
+    "material": "High-Traction Grip Rubber Sole",
+    "style": "Trail & Gym Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-007',
-    name: 'Endurance Pro Trail Trainer',
-    slug: 'endurance-pro-trail-trainer',
-    brand: 'AL-HALAL SPORT',
-    category: 'Sports Shoes',
-    subcategory: 'Trail & Hiking',
-    gender: 'Men',
-    description:
-      'Built to tackle rugged paths with deep multi-directional traction lugs and reinforced mudguards. Cushioned foam core absorbs high shocks.',
-    shortDescription: 'Heavy-duty trail trainer with anti-debris gusseted tongue.',
-    price: 2799,
-    salePrice: 1999,
-    discountPercentage: 28,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/GhytpjPv/Screenshot-2026-09-13-183454.png',
-      'https://i.postimg.cc/jd72jh6G/Screenshot-2026-09-13-183606.png',
+    "id": "prod-is-007",
+    "name": "Tuscan Casual Penny Moccasin",
+    "slug": "tuscan-casual-penny-moccasin",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 2699,
+    "salePrice": 2099,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Tuscan Casual Penny Moccasin from ITALIA SHOES. Engineered with supple textured leather upper and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Moccasin with Supple Textured Leather Upper and high-durability cushioned sole.",
+    "sku": "IS-MEN-007",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png",
+    "images": [
+      "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png",
+      "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png",
+      "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png"
     ],
-    thumbnail: 'https://i.postimg.cc/GhytpjPv/Screenshot-2026-09-13-183454.png',
-    variants: [
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Tactical Tan & Black',
-        colorCode: '#D97706',
-        images: [
-          'https://i.postimg.cc/GhytpjPv/Screenshot-2026-09-13-183454.png',
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/52Ln5t9C/Screenshot-2026-09-21-231703.png",
+          "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png"
         ],
-        sizes: { '7': 4, '8': 7, '9': 5, '10': 3, '11': 1 },
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
       },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png",
+          "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
     ],
-    sizes: ['7', '8', '9', '10', '11'],
-    colors: ['Tactical Tan & Black'],
-    stock: 20,
-    sizeStock: { '7': 4, '8': 7, '9': 5, '10': 3, '11': 1 },
-    sizeSystem: 'India',
-    material: 'Ripstop Cordura & Synthetic Overlay',
-    style: 'Trail Trekking Shoe',
-    features: ['Rock protection plate', 'Gusseted debris tongue', 'Quick-lace system'],
-    sku: 'AH-TRL-007',
-    featured: true,
-    newArrival: false,
-    bestSeller: false,
-    offer: false,
-    status: 'active',
-    createdAt: '2026-03-07T10:00:00.000Z',
-    updatedAt: '2026-03-12T18:00:00.000Z',
+    "material": "Supple Textured Leather Upper",
+    "style": "Moccasin",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-008',
-    name: 'Wave-Air Slide Sandal',
-    slug: 'wave-air-slide-sandal',
-    brand: 'AL-HALAL',
-    category: 'Sandals',
-    subcategory: 'Slip-on Slides',
-    gender: 'Unisex',
-    description:
-      'Seamless molded slide with wide bandage strap and textured non-slip footbed. Perfect for post-workout recovery or daily leisure relaxing.',
-    shortDescription: 'Contoured recovery slide with ultra-cushioned comfort.',
-    price: 799,
-    salePrice: 499,
-    discountPercentage: 37,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/Dw3Z4bBw/Screenshot-2026-09-13-183844.png',
-      'https://i.postimg.cc/8zg5frtG/Screenshot-2026-09-13-183839.png',
-      'https://i.postimg.cc/x1VCNbt2/Screenshot-2026-09-13-183819.png',
+    "id": "prod-is-008",
+    "name": "Velocity Marathon Racing Sneaker",
+    "slug": "velocity-marathon-racing-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Unisex",
+    "price": 3599,
+    "salePrice": 2899,
+    "discountPercentage": 19,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Velocity Marathon Racing Sneaker from ITALIA SHOES. Engineered with featherlight kinetic knit and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Marathon Racer with Featherlight Kinetic Knit and high-durability cushioned sole.",
+    "sku": "IS-SPO-008",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png",
+    "images": [
+      "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png",
+      "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png",
+      "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png"
     ],
-    thumbnail: 'https://i.postimg.cc/Dw3Z4bBw/Screenshot-2026-09-13-183844.png',
-    variants: [
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Jet Black',
-        colorCode: '#000000',
-        images: [
-          'https://i.postimg.cc/Dw3Z4bBw/Screenshot-2026-09-13-183844.png',
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/x1MtGdjy/Screenshot-2026-09-21-231707.png",
+          "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png"
         ],
-        sizes: { '6': 6, '7': 10, '8': 12, '9': 8, '10': 4 },
-      },
-    ],
-    sizes: ['6', '7', '8', '9', '10'],
-    colors: ['Jet Black'],
-    stock: 40,
-    sizeStock: { '6': 6, '7': 10, '8': 12, '9': 8, '10': 4 },
-    sizeSystem: 'India',
-    material: 'Molded Dual-Density EVA',
-    style: 'Athletic Slide',
-    features: ['Quick-drying', 'Lightweight buoyancy', 'Textured grip pattern'],
-    sku: 'AH-SLD-008',
-    featured: false,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-08T10:00:00.000Z',
-    updatedAt: '2026-03-12T19:00:00.000Z',
-  },
-  // --- BRANDED WATCHES ---
-  {
-    id: 'prod-w01',
-    name: 'Fossil Neutra Chronograph Stainless Steel Watch',
-    slug: 'fossil-neutra-chronograph-stainless-steel-watch',
-    brand: 'FOSSIL',
-    category: 'Branded Watches',
-    subcategory: 'Chronograph Watches',
-    gender: 'Men',
-    description:
-      'The quintessential mid-century timepiece reimagined. Features a balanced 44mm dial with three sub-dials, stopwatch function, amber Roman numeral markers, and an ion-plated smoke stainless steel mesh bracelet.',
-    shortDescription: 'Iconic 44mm chronograph with smoke stainless steel mesh bracelet and Roman dial.',
-    price: 12995,
-    salePrice: 9495,
-    discountPercentage: 27,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    ],
-    thumbnail: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    variants: [
-      {
-        color: 'Smoke Steel',
-        colorCode: '#4B5563',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-        ],
-        sizes: { '42mm': 6, '44mm': 5 },
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
       },
       {
-        color: 'Rose Gold & Leather',
-        colorCode: '#B45309',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png",
+          "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png"
         ],
-        sizes: { '42mm': 4, '44mm': 3 },
-      },
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
     ],
-    sizes: ['42mm', '44mm'],
-    colors: ['Smoke Steel', 'Rose Gold & Leather'],
-    stock: 18,
-    sizeStock: { '42mm': 10, '44mm': 8 },
-    sizeSystem: 'Dial',
-    material: 'Ion-Plated Stainless Steel & Mineral Crystal',
-    style: 'Chronograph Dress Watch',
-    features: ['5 ATM Water Resistance (50m)', 'Precise Quartz Chronograph Movement', 'Hardened Mineral Crystal Glass', 'Deployment Clasp'],
-    sku: 'FSL-NTR-001',
-    featured: true,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-09T10:00:00.000Z',
-    updatedAt: '2026-03-12T20:00:00.000Z',
+    "material": "Featherlight Kinetic Knit",
+    "style": "Marathon Racer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-w02',
-    name: 'Casio G-Shock Octagon Carbon Core Watch (CasiOak)',
-    slug: 'casio-g-shock-octagon-carbon-core-watch',
-    brand: 'CASIO G-SHOCK',
-    category: 'Branded Watches',
-    subcategory: 'Sport & Tactical Watches',
-    gender: 'Unisex',
-    description:
-      'Legendary durability in a modern geometric slim profile. Crafted with a carbon core guard structure, high-rigidity resin case, 200-meter water resistance, and an analog-digital hybrid display.',
-    shortDescription: 'Ultra-durable 200M water resistant carbon core octagon watch with double LED backlight.',
-    price: 11495,
-    salePrice: 8995,
-    discountPercentage: 22,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+    "id": "prod-is-009",
+    "name": "Classic Italian Derby Oxford",
+    "slug": "classic-italian-derby-oxford",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 2899,
+    "salePrice": 2199,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Classic Italian Derby Oxford from ITALIA SHOES. Engineered with gloss burnished synthetic leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Formal Derby with Gloss Burnished Synthetic Leather and high-durability cushioned sole.",
+    "sku": "IS-MEN-009",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png",
+    "images": [
+      "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png",
+      "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png",
+      "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png"
     ],
-    thumbnail: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    variants: [
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Stealth Black',
-        colorCode: '#111111',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/sg7wP2fP/Screenshot-2026-09-21-231712.png",
+          "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png"
         ],
-        sizes: { '45mm': 12 },
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
       },
       {
-        color: 'Army Green',
-        colorCode: '#365314',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png",
+          "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png"
         ],
-        sizes: { '45mm': 6 },
-      },
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
     ],
-    sizes: ['45mm'],
-    colors: ['Stealth Black', 'Army Green'],
-    stock: 18,
-    sizeStock: { '45mm': 18 },
-    sizeSystem: 'Dial',
-    material: 'Fine Resin & Carbon Fiber Core Structure',
-    style: 'Tough Tactical Sports Watch',
-    features: ['200-Meter Water Resistance (20 Bar)', 'Shock Resistant Carbon Core', 'Super Illuminator Double LED', 'World Time 48 Cities + UTC'],
-    sku: 'GSH-OAK-002',
-    featured: true,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-09T11:00:00.000Z',
-    updatedAt: '2026-03-12T20:30:00.000Z',
+    "material": "Gloss Burnished Synthetic Leather",
+    "style": "Formal Derby",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-w03',
-    name: "Tommy Hilfiger Men's Hendrix Navy Sunray Multi-Eye Watch",
-    slug: 'tommy-hilfiger-mens-hendrix-navy-sunray-watch',
-    brand: 'TOMMY HILFIGER',
-    category: 'Branded Watches',
-    subcategory: 'Dress & Luxury Watches',
-    gender: 'Men',
-    description:
-      'Elevated American casual style. Features a 43mm circular stainless case with a deep navy sunray dial, sub-eyes for day and 24-hour time, and signature red, white, and blue iconic Hilfiger accents.',
-    shortDescription: 'Sophisticated 43mm multi-dial wristwatch with deep navy sunray finish.',
-    price: 14500,
-    salePrice: 10875,
-    discountPercentage: 25,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+    "id": "prod-is-010",
+    "name": "CloudWalk Women's Comfort Slip-On",
+    "slug": "cloudwalk-women-s-comfort-slip-on",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 1999,
+    "salePrice": 1599,
+    "discountPercentage": 20,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the CloudWalk Women's Comfort Slip-On from ITALIA SHOES. Engineered with ultra-flex memory cushion and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Comfort Loafer with Ultra-Flex Memory Cushion and high-durability cushioned sole.",
+    "sku": "IS-WOM-010",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png",
+    "images": [
+      "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png",
+      "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png",
+      "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png"
     ],
-    thumbnail: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    variants: [
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 19,
+      "5": 24,
+      "6": 11,
+      "7": 16,
+      "8": 21
+    },
+    "stock": 91,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Navy & Silver',
-        colorCode: '#1E3A8A',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/t4W2dgRr/Screenshot-2026-09-21-231715.png",
+          "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png"
         ],
-        sizes: { '43mm': 10 },
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
       },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png",
+          "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      }
     ],
-    sizes: ['43mm'],
-    colors: ['Navy & Silver'],
-    stock: 10,
-    sizeStock: { '43mm': 10 },
-    sizeSystem: 'Dial',
-    material: 'Brushed Solid Stainless Steel',
-    style: 'Modern Business Casual',
-    features: ['Multi-eye day and 24hr indicator', 'Scratch-resistant mineral crystal', 'Water resistant to 50 meters', 'Iconic Hilfiger flag logo at 12 o’clock'],
-    sku: 'TH-HDX-003',
-    featured: true,
-    newArrival: false,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-09T12:00:00.000Z',
-    updatedAt: '2026-03-12T21:00:00.000Z',
+    "material": "Ultra-Flex Memory Cushion",
+    "style": "Comfort Loafer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-w04',
-    name: 'Titan Edge Ceramic Ultra-Slim Luxury Watch',
-    slug: 'titan-edge-ceramic-ultra-slim-luxury-watch',
-    brand: 'TITAN',
-    category: 'Branded Watches',
-    subcategory: 'Slim Dress Watches',
-    gender: 'Unisex',
-    description:
-      'One of the slimmest ceramic watches in the world. Engineered with high-tech ceramic that resists scratches, coupled with a Swiss sapphire crystal glass and an astonishingly sleek 4.4mm case thickness.',
-    shortDescription: 'World-renowned ultra-slim high-tech ceramic watch with sapphire crystal glass.',
-    price: 19995,
-    salePrice: 15995,
-    discountPercentage: 20,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+    "id": "prod-is-011",
+    "name": "Veloce Cross-Trainer Gym Shoe",
+    "slug": "veloce-cross-trainer-gym-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 2999,
+    "salePrice": 2299,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Veloce Cross-Trainer Gym Shoe from ITALIA SHOES. Engineered with breathable double mesh and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Training Shoe with Breathable Double Mesh and high-durability cushioned sole.",
+    "sku": "IS-SPO-011",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png",
+    "images": [
+      "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png",
+      "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png",
+      "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png"
     ],
-    thumbnail: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    variants: [
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Anthracite Ceramic',
-        colorCode: '#1F2937',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/4xVBv341/Screenshot-2026-09-21-231718.png",
+          "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png"
         ],
-        sizes: { '40mm': 8 },
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
       },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png",
+          "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
     ],
-    sizes: ['40mm'],
-    colors: ['Anthracite Ceramic'],
-    stock: 8,
-    sizeStock: { '40mm': 8 },
-    sizeSystem: 'Dial',
-    material: 'High-Tech Sintered Ceramic & Sapphire Glass',
-    style: 'Minimalist Ultra-Slim Luxury',
-    features: ['Ultra-thin 4.4mm case profile', 'Scratch-proof sapphire crystal', 'Hypoallergenic ceramic build', '30M Water resistant'],
-    sku: 'TTN-EDG-004',
-    featured: false,
-    newArrival: true,
-    bestSeller: false,
-    offer: false,
-    status: 'active',
-    createdAt: '2026-03-09T14:00:00.000Z',
-    updatedAt: '2026-03-12T21:30:00.000Z',
+    "material": "Breathable Double Mesh",
+    "style": "Training Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-w05',
-    name: 'Armani Exchange Outerbanks Sport Chronograph Silicone Watch',
-    slug: 'armani-exchange-outerbanks-sport-chronograph-watch',
-    brand: 'ARMANI EXCHANGE',
-    category: 'Branded Watches',
-    subcategory: 'Chronograph Watches',
-    gender: 'Men',
-    description:
-      'Bold Italian street design meets sports performance. Features a high-contrast 44mm black textured dial with gold-tone hands, three sub-dials, tachymeter bezel, and a comfortable ribbed black silicone strap.',
-    shortDescription: 'Bold 44mm sports chronograph with gold-tone accents and textured silicone strap.',
-    price: 13995,
-    salePrice: 10495,
-    discountPercentage: 25,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+    "id": "prod-is-012",
+    "name": "Urban Edge Chunky Platform Sneaker",
+    "slug": "urban-edge-chunky-platform-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Women",
+    "price": 2799,
+    "salePrice": 2199,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Urban Edge Chunky Platform Sneaker from ITALIA SHOES. Engineered with textured pu & cushion outsole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Chunky Sneaker with Textured PU & Cushion Outsole and high-durability cushioned sole.",
+    "sku": "IS-CAS-012",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png",
+    "images": [
+      "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png",
+      "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png",
+      "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png"
     ],
-    thumbnail: 'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
-    variants: [
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 25,
+      "5": 12,
+      "6": 17,
+      "7": 22,
+      "8": 27
+    },
+    "stock": 103,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Black & Gold',
-        colorCode: '#D97706',
-        images: [
-          'https://i.postimg.cc/c4xWpM9Y/Screenshot-2026-09-13-183324.png',
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/SxCDLKQ5/Screenshot-2026-09-21-231722.png",
+          "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png"
         ],
-        sizes: { '44mm': 9 },
-      },
-    ],
-    sizes: ['44mm'],
-    colors: ['Black & Gold'],
-    stock: 9,
-    sizeStock: { '44mm': 9 },
-    sizeSystem: 'Dial',
-    material: 'Stainless Steel Case with Ribbed Silicone Band',
-    style: 'Luxury Sport Lifestyle',
-    features: ['Stopwatch chronograph sub-dials', '50-Meter water resistance', 'High durability silicone band', 'Engraved Armani Exchange crown'],
-    sku: 'AX-OTB-005',
-    featured: true,
-    newArrival: false,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-09T15:00:00.000Z',
-    updatedAt: '2026-03-12T22:00:00.000Z',
-  },
-
-  // --- BRANDED SUNGLASSES ---
-  {
-    id: 'prod-s01',
-    name: 'Ray-Ban Aviator Classic Polarized Sunglasses (RB3025)',
-    slug: 'ray-ban-aviator-classic-polarized-sunglasses',
-    brand: 'RAY-BAN',
-    category: 'Branded Sunglasses',
-    subcategory: 'Aviator Sunglasses',
-    gender: 'Unisex',
-    description:
-      'The timeless icon that defined aviation eyewear since 1937. Features genuine crystal polarized G-15 lenses that eliminate 99% of reflected glare while offering 100% UV400 radiation protection in a lightweight gold metal frame.',
-    shortDescription: 'Iconic teardrop aviator frame with crystal polarized G-15 glare-blocking lenses.',
-    price: 9890,
-    salePrice: 7990,
-    discountPercentage: 19,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    ],
-    thumbnail: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    variants: [
-      {
-        color: 'Gold / Green G-15',
-        colorCode: '#D97706',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-        ],
-        sizes: { '55mm (Standard)': 6, '58mm (Medium)': 10, '62mm (Large)': 4 },
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
       },
       {
-        color: 'Matte Black / Grey Polarized',
-        colorCode: '#111111',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png",
+          "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png"
         ],
-        sizes: { '55mm (Standard)': 4, '58mm (Medium)': 8, '62mm (Large)': 3 },
-      },
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      }
     ],
-    sizes: ['55mm (Standard)', '58mm (Medium)', '62mm (Large)'],
-    colors: ['Gold / Green G-15', 'Matte Black / Grey Polarized'],
-    stock: 35,
-    sizeStock: { '55mm (Standard)': 10, '58mm (Medium)': 18, '62mm (Large)': 7 },
-    sizeSystem: 'Frame',
-    material: 'Monel Metal Frame & Tempered Crystal Lenses',
-    style: 'Classic Teardrop Aviator',
-    features: ['100% UV400 Sun Protection', 'Crystal Polarized Lenses (Anti-Glare)', 'Adjustable Silicone Nose Pads', 'Signature Ray-Ban Laser Etching on Lens'],
-    sku: 'RB-AVT-001',
-    featured: true,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-10T09:00:00.000Z',
-    updatedAt: '2026-03-12T22:30:00.000Z',
+    "material": "Textured PU & Cushion Outsole",
+    "style": "Chunky Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-s02',
-    name: 'Oakley Holbrook Prizm Sport Sunglasses',
-    slug: 'oakley-holbrook-prizm-sport-sunglasses',
-    brand: 'OAKLEY',
-    category: 'Branded Sunglasses',
-    subcategory: 'Sport & Performance Eyewear',
-    gender: 'Men',
-    description:
-      'Inspired by screen heroes from the 1940s, 50s, and 60s, this design epitomizes the spirit of exploration. Equipped with Oakley Prizm lens technology designed to enhance color, contrast, and detail for an optimized visual experience.',
-    shortDescription: 'Classic American frame with revolutionary Prizm contrast-tuning optics.',
-    price: 11290,
-    salePrice: 8990,
-    discountPercentage: 20,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+    "id": "prod-is-013",
+    "name": "Riviera Dual-Strap Comfort Slide",
+    "slug": "riviera-dual-strap-comfort-slide",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1599,
+    "salePrice": 1199,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Riviera Dual-Strap Comfort Slide from ITALIA SHOES. Engineered with anatomical eva footbed and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Slide Sandal with Anatomical EVA Footbed and high-durability cushioned sole.",
+    "sku": "IS-SAN-013",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png",
+    "images": [
+      "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png",
+      "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png",
+      "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png"
     ],
-    thumbnail: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    variants: [
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Matte Black / Prizm Sapphire',
-        colorCode: '#2563EB',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/52Ln5t9R/Screenshot-2026-09-21-231726.png",
+          "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png"
         ],
-        sizes: { 'Standard': 8, 'XL': 5 },
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
       },
       {
-        color: 'Woodgrain / Prizm Daily',
-        colorCode: '#78350F',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png",
+          "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png"
         ],
-        sizes: { 'Standard': 5, 'XL': 3 },
-      },
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
     ],
-    sizes: ['Standard', 'XL'],
-    colors: ['Matte Black / Prizm Sapphire', 'Woodgrain / Prizm Daily'],
-    stock: 21,
-    sizeStock: { 'Standard': 13, 'XL': 8 },
-    sizeSystem: 'Frame',
-    material: 'Lightweight O Matter Frame Material',
-    style: 'Wayfarer Athletic Lifestyle',
-    features: ['Prizm Lens Technology', 'Plutonite Lens Material filtering 100% UVA/UVB/UVC', 'Metal icon accents', 'Three-Point Fit alignment'],
-    sku: 'OKL-HLB-002',
-    featured: true,
-    newArrival: false,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-10T10:00:00.000Z',
-    updatedAt: '2026-03-12T23:00:00.000Z',
+    "material": "Anatomical EVA Footbed",
+    "style": "Slide Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-s03',
-    name: 'Carrera Champion Signature Pilot Sunglasses',
-    slug: 'carrera-champion-signature-pilot-sunglasses',
-    brand: 'CARRERA',
-    category: 'Branded Sunglasses',
-    subcategory: 'Pilot & Street Eyewear',
-    gender: 'Unisex',
-    description:
-      'An undisputed eyewear icon since 1986. Features distinctive teardrop shaped lenses, the proud Carrera "C" monogram plaque right between the brows, and gradient tinted lenses designed for high-speed street presence.',
-    shortDescription: 'Iconic oversized pilot sunglasses with center C-logo and gradient lenses.',
-    price: 8490,
-    salePrice: 6290,
-    discountPercentage: 26,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+    "id": "prod-is-014",
+    "name": "Street Glide Skater Sneaker",
+    "slug": "street-glide-skater-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2199,
+    "salePrice": 1699,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Street Glide Skater Sneaker from ITALIA SHOES. Engineered with durable canvas & vulcanized rubber and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Skate Sneaker with Durable Canvas & Vulcanized Rubber and high-durability cushioned sole.",
+    "sku": "IS-CAS-014",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png",
+    "images": [
+      "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png",
+      "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png",
+      "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png"
     ],
-    thumbnail: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    variants: [
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Havana Tortoise',
-        colorCode: '#92400E',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/g28Ny0cQ/Screenshot-2026-09-21-231729.png",
+          "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png"
         ],
-        sizes: { '62mm (Standard)': 9 },
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
       },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png",
+          "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
     ],
-    sizes: ['62mm (Standard)'],
-    colors: ['Havana Tortoise'],
-    stock: 9,
-    sizeStock: { '62mm (Standard)': 9 },
-    sizeSystem: 'Frame',
-    material: 'Optyl Hypoallergenic Thermosetting Plastic',
-    style: 'Bold Retro Aviator Pilot',
-    features: ['Signature "C" monogram logo plaque', 'Gradient UV protection lenses', 'Ultra-lightweight Optyl material', 'Form-fitting curved bridge'],
-    sku: 'CRR-CMP-003',
-    featured: true,
-    newArrival: true,
-    bestSeller: false,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-10T11:00:00.000Z',
-    updatedAt: '2026-03-12T23:30:00.000Z',
+    "material": "Durable Canvas & Vulcanized Rubber",
+    "style": "Skate Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-s04',
-    name: 'Police Origins Bullet Polarized Hexagonal Sunglasses',
-    slug: 'police-origins-bullet-polarized-hexagonal-sunglasses',
-    brand: 'POLICE',
-    category: 'Branded Sunglasses',
-    subcategory: 'Geometric & Street Eyewear',
-    gender: 'Men',
-    description:
-      'Aggressive modern geometry made for bold personalities. Crafted with a lightweight gunmetal hexagonal frame, anti-reflective polarized smoke lenses, and the historic 1990s Police winged eagle badge on the temples.',
-    shortDescription: 'Modern hexagonal frame with polarized anti-glare smoke lenses.',
-    price: 7990,
-    salePrice: 5990,
-    discountPercentage: 25,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+    "id": "prod-is-015",
+    "name": "Milano Wingtip Brogue Shoe",
+    "slug": "milano-wingtip-brogue-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 3199,
+    "salePrice": 2499,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Milano Wingtip Brogue Shoe from ITALIA SHOES. Engineered with perforated medallion finish and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Wingtip Brogue with Perforated Medallion Finish and high-durability cushioned sole.",
+    "sku": "IS-MEN-015",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png",
+    "images": [
+      "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png",
+      "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png",
+      "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png"
     ],
-    thumbnail: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    variants: [
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Gunmetal Smoke',
-        colorCode: '#374151',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/Jh8KpWtx/Screenshot-2026-09-21-231732.png",
+          "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png"
         ],
-        sizes: { 'Standard (53mm)': 8 },
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
       },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png",
+          "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
     ],
-    sizes: ['Standard (53mm)'],
-    colors: ['Gunmetal Smoke'],
-    stock: 8,
-    sizeStock: { 'Standard (53mm)': 8 },
-    sizeSystem: 'Frame',
-    material: 'Electroplated Stainless Steel & Polarized Polycarbonate',
-    style: 'Hexagonal Geometric Urban',
-    features: ['High-contrast polarized lens filter', 'Spring hinges for flexible fit', 'Police winged logo on temples', 'Anti-reflective inner coating'],
-    sku: 'POL-BLT-004',
-    featured: false,
-    newArrival: true,
-    bestSeller: true,
-    offer: true,
-    status: 'active',
-    createdAt: '2026-03-10T12:00:00.000Z',
-    updatedAt: '2026-03-13T00:00:00.000Z',
+    "material": "Perforated Medallion Finish",
+    "style": "Wingtip Brogue",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
   {
-    id: 'prod-s05',
-    name: 'Tom Ford Snowdon Square Luxury Designer Sunglasses',
-    slug: 'tom-ford-snowdon-square-luxury-designer-sunglasses',
-    brand: 'TOM FORD',
-    category: 'Branded Sunglasses',
-    subcategory: 'Luxury Designer Eyewear',
-    gender: 'Unisex',
-    description:
-      'The hallmark of modern luxury made famous by cinematic secret agents. Handcrafted in Italy from rich dark havana acetate, featuring custom thick-gauge temples with the signature rose gold metal "T" insert at the hinges.',
-    shortDescription: 'Italian handcrafted thick-profile acetate sunglasses with iconic T-temple inlays.',
-    price: 24500,
-    salePrice: 19600,
-    discountPercentage: 20,
-    currency: 'INR',
-    images: [
-      'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+    "id": "prod-is-016",
+    "name": "ActivePulse Dynamic Jogger",
+    "slug": "activepulse-dynamic-jogger",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Unisex",
+    "price": 2799,
+    "salePrice": 2099,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the ActivePulse Dynamic Jogger from ITALIA SHOES. Engineered with shock-absorbing midsole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Jogging Sneaker with Shock-Absorbing Midsole and high-durability cushioned sole.",
+    "sku": "IS-SPO-016",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png",
+    "images": [
+      "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png",
+      "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png",
+      "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png"
     ],
-    thumbnail: 'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
-    variants: [
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
       {
-        color: 'Dark Havana Tortoise',
-        colorCode: '#78350F',
-        images: [
-          'https://i.postimg.cc/fT8sDtp0/Screenshot-2026-09-13-183850.png',
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/HkXB0LWF/Screenshot-2026-09-21-231737.png",
+          "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png"
         ],
-        sizes: { '52mm (Standard)': 5 },
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
       },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png",
+          "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
     ],
-    sizes: ['52mm (Standard)'],
-    colors: ['Dark Havana Tortoise'],
-    stock: 5,
-    sizeStock: { '52mm (Standard)': 5 },
-    sizeSystem: 'Frame',
-    material: 'Hand-Polished Italian Mazzucchelli Acetate',
-    style: 'High Luxury Statement Square',
-    features: ['Signature metal "T" logo insert', '100% UV400 scratch-resistant lenses', 'Handmade in Italy', 'Engraved Tom Ford velvet presentation box'],
-    sku: 'TF-SND-005',
-    featured: true,
-    newArrival: true,
-    bestSeller: false,
-    offer: false,
-    status: 'active',
-    createdAt: '2026-03-10T13:00:00.000Z',
-    updatedAt: '2026-03-13T00:30:00.000Z',
+    "material": "Shock-Absorbing Midsole",
+    "style": "Jogging Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
   },
+  {
+    "id": "prod-is-017",
+    "name": "Aria Women's Lightweight Walker",
+    "slug": "aria-women-s-lightweight-walker",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2099,
+    "salePrice": 1599,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Aria Women's Lightweight Walker from ITALIA SHOES. Engineered with seamless stretch weave and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Walking Shoe with Seamless Stretch Weave and high-durability cushioned sole.",
+    "sku": "IS-WOM-017",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png",
+    "images": [
+      "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png",
+      "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png",
+      "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 22,
+      "5": 27,
+      "6": 14,
+      "7": 19,
+      "8": 24
+    },
+    "stock": 106,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/FKvGTQ1B/Screenshot-2026-09-21-231741.png",
+          "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png"
+        ],
+        "sizes": {
+          "4": 22,
+          "5": 27,
+          "6": 14,
+          "7": 19,
+          "8": 24
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png",
+          "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png"
+        ],
+        "sizes": {
+          "4": 22,
+          "5": 27,
+          "6": 14,
+          "7": 19,
+          "8": 24
+        }
+      }
+    ],
+    "material": "Seamless Stretch Weave",
+    "style": "Walking Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-018",
+    "name": "Verona Classic Chelsea Boot",
+    "slug": "verona-classic-chelsea-boot",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 3499,
+    "salePrice": 2699,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Verona Classic Chelsea Boot from ITALIA SHOES. Engineered with matte synthetic leather & elastic gusset and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Chelsea Boot with Matte Synthetic Leather & Elastic Gusset and high-durability cushioned sole.",
+    "sku": "IS-MEN-018",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png",
+    "images": [
+      "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png",
+      "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png",
+      "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 25,
+      "7": 12,
+      "8": 17,
+      "9": 22,
+      "10": 27,
+      "11": 14
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/yNKnLzWw/Screenshot-2026-09-21-231745.png",
+          "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png",
+          "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      }
+    ],
+    "material": "Matte Synthetic Leather & Elastic Gusset",
+    "style": "Chelsea Boot",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-019",
+    "name": "HydroGrip Waterproof Adventure Sandal",
+    "slug": "hydrogrip-waterproof-adventure-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1799,
+    "salePrice": 1399,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the HydroGrip Waterproof Adventure Sandal from ITALIA SHOES. Engineered with quick-dry neoprene lining and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Outdoor Sandal with Quick-Dry Neoprene Lining and high-durability cushioned sole.",
+    "sku": "IS-SAN-019",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png",
+    "images": [
+      "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png",
+      "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png",
+      "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/QMDSfrVv/Screenshot-2026-09-21-231751.png",
+          "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png",
+          "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "Quick-Dry Neoprene Lining",
+    "style": "Outdoor Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-020",
+    "name": "City Pace Minimalist Court Sneaker",
+    "slug": "city-pace-minimalist-court-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2399,
+    "salePrice": 1899,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the City Pace Minimalist Court Sneaker from ITALIA SHOES. Engineered with monochrome sleek pu and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Court Sneaker with Monochrome Sleek PU and high-durability cushioned sole.",
+    "sku": "IS-CAS-020",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png",
+    "images": [
+      "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png",
+      "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png",
+      "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/9f21Ljz6/Screenshot-2026-09-21-231756.png",
+          "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png",
+          "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Monochrome Sleek PU",
+    "style": "Court Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-021",
+    "name": "Modena Tassel Dress Loafer",
+    "slug": "modena-tassel-dress-loafer",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 2999,
+    "salePrice": 2399,
+    "discountPercentage": 20,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Modena Tassel Dress Loafer from ITALIA SHOES. Engineered with rich microfiber leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Tassel Loafer with Rich Microfiber Leather and high-durability cushioned sole.",
+    "sku": "IS-MEN-021",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png",
+    "images": [
+      "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png",
+      "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png",
+      "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/d0Fn5KLF/Screenshot-2026-09-21-231801.png",
+          "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png",
+          "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Rich Microfiber Leather",
+    "style": "Tassel Loafer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-022",
+    "name": "FlexiFoam Women's Active Sneaker",
+    "slug": "flexifoam-women-s-active-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2299,
+    "salePrice": 1699,
+    "discountPercentage": 26,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the FlexiFoam Women's Active Sneaker from ITALIA SHOES. Engineered with shock-resistant foam base and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Active Sneaker with Shock-Resistant Foam Base and high-durability cushioned sole.",
+    "sku": "IS-WOM-022",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png",
+    "images": [
+      "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png",
+      "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png",
+      "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 19,
+      "5": 24,
+      "6": 11,
+      "7": 16,
+      "8": 21
+    },
+    "stock": 91,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/pdvkstpt/Screenshot-2026-09-21-231804.png",
+          "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png",
+          "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      }
+    ],
+    "material": "Shock-Resistant Foam Base",
+    "style": "Active Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-023",
+    "name": "Ignite Turbo Speed Trainer",
+    "slug": "ignite-turbo-speed-trainer",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3399,
+    "salePrice": 2599,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Ignite Turbo Speed Trainer from ITALIA SHOES. Engineered with high-bounce tpu sole plate and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Sprint Runner with High-Bounce TPU Sole Plate and high-durability cushioned sole.",
+    "sku": "IS-SPO-023",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png",
+    "images": [
+      "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png",
+      "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png",
+      "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/k5CwTdBJ/Screenshot-2026-09-21-231808.png",
+          "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png",
+          "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
+    ],
+    "material": "High-Bounce TPU Sole Plate",
+    "style": "Sprint Runner",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-024",
+    "name": "Capri Buckle Leather Sandal",
+    "slug": "capri-buckle-leather-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1999,
+    "salePrice": 1499,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Capri Buckle Leather Sandal from ITALIA SHOES. Engineered with dual brass buckles & suede lining and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Strap Sandal with Dual Brass Buckles & Suede Lining and high-durability cushioned sole.",
+    "sku": "IS-SAN-024",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png",
+    "images": [
+      "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png",
+      "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png",
+      "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 25,
+      "7": 12,
+      "8": 17,
+      "9": 22,
+      "10": 27,
+      "11": 14
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/pdvkstp2/Screenshot-2026-09-21-231811.png",
+          "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png",
+          "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      }
+    ],
+    "material": "Dual Brass Buckles & Suede Lining",
+    "style": "Strap Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-025",
+    "name": "Retro Wave Color-Block Sneaker",
+    "slug": "retro-wave-color-block-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "New Arrivals",
+    "gender": "Unisex",
+    "price": 2699,
+    "salePrice": 2099,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Retro Wave Color-Block Sneaker from ITALIA SHOES. Engineered with multi-panel layered suede/mesh and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Color-Block Sneaker with Multi-Panel Layered Suede/Mesh and high-durability cushioned sole.",
+    "sku": "IS-NEW-025",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png",
+    "images": [
+      "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png",
+      "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png",
+      "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/N0tbdw5f/Screenshot-2026-09-21-231816.png",
+          "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png",
+          "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "Multi-Panel Layered Suede/Mesh",
+    "style": "Color-Block Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": true,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-026",
+    "name": "Florence Formal Monk Strap",
+    "slug": "florence-formal-monk-strap",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 3299,
+    "salePrice": 2599,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Florence Formal Monk Strap from ITALIA SHOES. Engineered with polished italian aesthetic leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Double Monk Strap with Polished Italian Aesthetic Leather and high-durability cushioned sole.",
+    "sku": "IS-MEN-026",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png",
+    "images": [
+      "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png",
+      "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png",
+      "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/SK4VgpJx/Screenshot-2026-09-21-231819.png",
+          "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png",
+          "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Polished Italian Aesthetic Leather",
+    "style": "Double Monk Strap",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-027",
+    "name": "AeroBreeze Slip-On Comfort Shoe",
+    "slug": "aerobreeze-slip-on-comfort-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 1899,
+    "salePrice": 1399,
+    "discountPercentage": 26,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the AeroBreeze Slip-On Comfort Shoe from ITALIA SHOES. Engineered with perforated breathable textile and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Slip-On with Perforated Breathable Textile and high-durability cushioned sole.",
+    "sku": "IS-CAS-027",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png",
+    "images": [
+      "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png",
+      "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png",
+      "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/CK47t6qY/Screenshot-2026-09-21-231828.png",
+          "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png",
+          "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Perforated Breathable Textile",
+    "style": "Slip-On",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-028",
+    "name": "Zenith Women's Training Flat",
+    "slug": "zenith-women-s-training-flat",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2199,
+    "salePrice": 1699,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Zenith Women's Training Flat from ITALIA SHOES. Engineered with lightweight knit composite and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Training Flat with Lightweight Knit Composite and high-durability cushioned sole.",
+    "sku": "IS-WOM-028",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png",
+    "images": [
+      "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png",
+      "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png",
+      "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 19,
+      "5": 24,
+      "6": 11,
+      "7": 16,
+      "8": 21
+    },
+    "stock": 91,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/25xGJXZr/Screenshot-2026-09-21-231832.png",
+          "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png",
+          "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      }
+    ],
+    "material": "Lightweight Knit Composite",
+    "style": "Training Flat",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-029",
+    "name": "StrideMax Orthopedic Daily Slide",
+    "slug": "stridemax-orthopedic-daily-slide",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Unisex",
+    "price": 1499,
+    "salePrice": 1099,
+    "discountPercentage": 27,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the StrideMax Orthopedic Daily Slide from ITALIA SHOES. Engineered with arch supporting dense eva and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Orthopedic Slide with Arch Supporting Dense EVA and high-durability cushioned sole.",
+    "sku": "IS-SAN-029",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png",
+    "images": [
+      "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png",
+      "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png",
+      "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/YSxRVyW7/Screenshot-2026-09-21-231839.png",
+          "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png",
+          "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
+    ],
+    "material": "Arch Supporting Dense EVA",
+    "style": "Orthopedic Slide",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-030",
+    "name": "Apex Pro Track & Road Runner",
+    "slug": "apex-pro-track-road-runner",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3199,
+    "salePrice": 2499,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Apex Pro Track & Road Runner from ITALIA SHOES. Engineered with reinforced heel cup & breathable mesh and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Road Runner with Reinforced Heel Cup & Breathable Mesh and high-durability cushioned sole.",
+    "sku": "IS-SPO-030",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png",
+    "images": [
+      "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png",
+      "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png",
+      "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 25,
+      "7": 12,
+      "8": 17,
+      "9": 22,
+      "10": 27,
+      "11": 14
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/1zKBTYqm/Screenshot-2026-09-21-231844.png",
+          "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png",
+          "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      }
+    ],
+    "material": "Reinforced Heel Cup & Breathable Mesh",
+    "style": "Road Runner",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-031",
+    "name": "Sienna Casual Driving Shoe",
+    "slug": "sienna-casual-driving-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2599,
+    "salePrice": 1999,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Sienna Casual Driving Shoe from ITALIA SHOES. Engineered with split rubber pebble sole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Driving Shoe with Split Rubber Pebble Sole and high-durability cushioned sole.",
+    "sku": "IS-CAS-031",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png",
+    "images": [
+      "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png",
+      "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png",
+      "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/TPc0SHDK/Screenshot-2026-09-21-231849.png",
+          "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png",
+          "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "Split Rubber Pebble Sole",
+    "style": "Driving Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-032",
+    "name": "Luna Chic Metallic Accent Sneaker",
+    "slug": "luna-chic-metallic-accent-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2499,
+    "salePrice": 1899,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Luna Chic Metallic Accent Sneaker from ITALIA SHOES. Engineered with clean upper with rose-gold trim and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Fashion Sneaker with Clean Upper with Rose-Gold Trim and high-durability cushioned sole.",
+    "sku": "IS-WOM-032",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png",
+    "images": [
+      "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png",
+      "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png",
+      "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 13,
+      "5": 18,
+      "6": 23,
+      "7": 10,
+      "8": 15
+    },
+    "stock": 79,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/vmvhjSVD/Screenshot-2026-09-21-231853.png",
+          "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png"
+        ],
+        "sizes": {
+          "4": 13,
+          "5": 18,
+          "6": 23,
+          "7": 10,
+          "8": 15
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png",
+          "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png"
+        ],
+        "sizes": {
+          "4": 13,
+          "5": 18,
+          "6": 23,
+          "7": 10,
+          "8": 15
+        }
+      }
+    ],
+    "material": "Clean Upper with Rose-Gold Trim",
+    "style": "Fashion Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-033",
+    "name": "Torino High-Top Street Sneaker",
+    "slug": "torino-high-top-street-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2899,
+    "salePrice": 2299,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Torino High-Top Street Sneaker from ITALIA SHOES. Engineered with padded collar & durable rubber outsole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "High-Top with Padded Collar & Durable Rubber Outsole and high-durability cushioned sole.",
+    "sku": "IS-CAS-033",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png",
+    "images": [
+      "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png",
+      "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png",
+      "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/tgzkfmxx/Screenshot-2026-09-21-231857.png",
+          "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png",
+          "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Padded Collar & Durable Rubber Outsole",
+    "style": "High-Top",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-034",
+    "name": "Volt Kinetic Fitness Sneaker",
+    "slug": "volt-kinetic-fitness-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 2999,
+    "salePrice": 2299,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Volt Kinetic Fitness Sneaker from ITALIA SHOES. Engineered with responsive energy return cushion and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Fitness Trainer with Responsive Energy Return Cushion and high-durability cushioned sole.",
+    "sku": "IS-SPO-034",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png",
+    "images": [
+      "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png",
+      "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png",
+      "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/HLtzKPyM/Screenshot-2026-09-21-231900.png",
+          "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png",
+          "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
+    ],
+    "material": "Responsive Energy Return Cushion",
+    "style": "Fitness Trainer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-035",
+    "name": "Venice Braided Strap Leather Sandal",
+    "slug": "venice-braided-strap-leather-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1899,
+    "salePrice": 1399,
+    "discountPercentage": 26,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Venice Braided Strap Leather Sandal from ITALIA SHOES. Engineered with hand-interwoven synthetic leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Braided Sandal with Hand-Interwoven Synthetic Leather and high-durability cushioned sole.",
+    "sku": "IS-SAN-035",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png",
+    "images": [
+      "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png",
+      "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png",
+      "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/YSxRVyWL/Screenshot-2026-09-21-231904.png",
+          "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png",
+          "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
+    ],
+    "material": "Hand-Interwoven Synthetic Leather",
+    "style": "Braided Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-036",
+    "name": "Elegance Pointed Toe Women's Flat",
+    "slug": "elegance-pointed-toe-women-s-flat",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 1999,
+    "salePrice": 1499,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Elegance Pointed Toe Women's Flat from ITALIA SHOES. Engineered with cushioned insole & smooth finish and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Dress Flat with Cushioned Insole & Smooth Finish and high-durability cushioned sole.",
+    "sku": "IS-WOM-036",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png",
+    "images": [
+      "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png",
+      "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png",
+      "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 25,
+      "5": 12,
+      "6": 17,
+      "7": 22,
+      "8": 27
+    },
+    "stock": 103,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/PqMycFw8/Screenshot-2026-09-21-231907.png",
+          "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png"
+        ],
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png",
+          "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png"
+        ],
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      }
+    ],
+    "material": "Cushioned Insole & Smooth Finish",
+    "style": "Dress Flat",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-037",
+    "name": "Napoli Formal Lace-Up Brogue",
+    "slug": "napoli-formal-lace-up-brogue",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 3099,
+    "salePrice": 2399,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Napoli Formal Lace-Up Brogue from ITALIA SHOES. Engineered with high-density composite leather and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Oxford Brogue with High-Density Composite Leather and high-durability cushioned sole.",
+    "sku": "IS-MEN-037",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png",
+    "images": [
+      "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png",
+      "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png",
+      "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/CK47t6qs/Screenshot-2026-09-21-231910.png",
+          "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png",
+          "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "High-Density Composite Leather",
+    "style": "Oxford Brogue",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-038",
+    "name": "BoostFlex Lightweight Walk Shoe",
+    "slug": "boostflex-lightweight-walk-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "New Arrivals",
+    "gender": "Unisex",
+    "price": 2399,
+    "salePrice": 1799,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the BoostFlex Lightweight Walk Shoe from ITALIA SHOES. Engineered with ultra-lightweight elastic mesh and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Walking Shoe with Ultra-Lightweight Elastic Mesh and high-durability cushioned sole.",
+    "sku": "IS-NEW-038",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png",
+    "images": [
+      "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png",
+      "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png",
+      "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/V6LgcBqt/Screenshot-2026-09-21-231926.png",
+          "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png",
+          "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Ultra-Lightweight Elastic Mesh",
+    "style": "Walking Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-039",
+    "name": "Enduro Marathon Cushion Sneaker",
+    "slug": "enduro-marathon-cushion-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3499,
+    "salePrice": 2699,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Enduro Marathon Cushion Sneaker from ITALIA SHOES. Engineered with anti-fatigue midsole system and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Marathon Shoe with Anti-Fatigue Midsole System and high-durability cushioned sole.",
+    "sku": "IS-SPO-039",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png",
+    "images": [
+      "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png",
+      "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png",
+      "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/wvT2dcXm/Screenshot-2026-09-21-231935.png",
+          "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png",
+          "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Anti-Fatigue Midsole System",
+    "style": "Marathon Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-040",
+    "name": "Raven Stealth Triple-Black Sneaker",
+    "slug": "raven-stealth-triple-black-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Offers",
+    "gender": "Men",
+    "price": 2599,
+    "salePrice": 1799,
+    "discountPercentage": 31,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Raven Stealth Triple-Black Sneaker from ITALIA SHOES. Engineered with deep black carbon textured upper and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Monochrome Sneaker with Deep Black Carbon Textured Upper and high-durability cushioned sole.",
+    "sku": "IS-OFF-040",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png",
+    "images": [
+      "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png",
+      "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png",
+      "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/pdBC71FB/Screenshot-2026-09-21-231940.png",
+          "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png",
+          "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
+    ],
+    "material": "Deep Black Carbon Textured Upper",
+    "style": "Monochrome Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-041",
+    "name": "Palermo Casual Suede-Touch Loafer",
+    "slug": "palermo-casual-suede-touch-loafer",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 2799,
+    "salePrice": 2099,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Palermo Casual Suede-Touch Loafer from ITALIA SHOES. Engineered with suede-finish microfiber and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Casual Loafer with Suede-Finish Microfiber and high-durability cushioned sole.",
+    "sku": "IS-MEN-041",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png",
+    "images": [
+      "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png",
+      "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png",
+      "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/sXDmR9YJ/Screenshot-2026-09-21-231944.png",
+          "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png",
+          "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
+    ],
+    "material": "Suede-Finish Microfiber",
+    "style": "Casual Loafer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-042",
+    "name": "SprintFlow Women's Cloud Jogger",
+    "slug": "sprintflow-women-s-cloud-jogger",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2399,
+    "salePrice": 1799,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the SprintFlow Women's Cloud Jogger from ITALIA SHOES. Engineered with airflow mesh & pillowed tongue and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Jogging Shoe with Airflow Mesh & Pillowed Tongue and high-durability cushioned sole.",
+    "sku": "IS-WOM-042",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png",
+    "images": [
+      "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png",
+      "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png",
+      "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 25,
+      "5": 12,
+      "6": 17,
+      "7": 22,
+      "8": 27
+    },
+    "stock": 103,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/C1L7VHGC/Screenshot-2026-09-21-231956.png",
+          "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png"
+        ],
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png",
+          "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png"
+        ],
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      }
+    ],
+    "material": "Airflow Mesh & Pillowed Tongue",
+    "style": "Jogging Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-043",
+    "name": "Triton Heavy-Duty Trek Sandal",
+    "slug": "triton-heavy-duty-trek-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1999,
+    "salePrice": 1499,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Triton Heavy-Duty Trek Sandal from ITALIA SHOES. Engineered with triple adjustable velcro straps and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Trekking Sandal with Triple Adjustable Velcro Straps and high-durability cushioned sole.",
+    "sku": "IS-SAN-043",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png",
+    "images": [
+      "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png",
+      "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png",
+      "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/ydYjzXmf/Screenshot-2026-09-21-232001.png",
+          "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png",
+          "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "Triple Adjustable Velcro Straps",
+    "style": "Trekking Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-044",
+    "name": "Vintage 70s Heritage Court Sneaker",
+    "slug": "vintage-70s-heritage-court-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Unisex",
+    "price": 2499,
+    "salePrice": 1899,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Vintage 70s Heritage Court Sneaker from ITALIA SHOES. Engineered with off-white retro rubber cupsole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Vintage Sneaker with Off-White Retro Rubber Cupsole and high-durability cushioned sole.",
+    "sku": "IS-CAS-044",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png",
+    "images": [
+      "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png",
+      "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png",
+      "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/Jn4xWcNx/Screenshot-2026-09-21-232005.png",
+          "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png",
+          "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Off-White Retro Rubber Cupsole",
+    "style": "Vintage Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-045",
+    "name": "Sorrento Dress Horsebit Loafer",
+    "slug": "sorrento-dress-horsebit-loafer",
+    "brand": "ITALIA SHOES",
+    "category": "Men",
+    "gender": "Men",
+    "price": 3299,
+    "salePrice": 2599,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Sorrento Dress Horsebit Loafer from ITALIA SHOES. Engineered with polished gold-tone bit ornament and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Horsebit Loafer with Polished Gold-Tone Bit Ornament and high-durability cushioned sole.",
+    "sku": "IS-MEN-045",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png",
+    "images": [
+      "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png",
+      "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png",
+      "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/QtxmrkQ4/Screenshot-2026-09-21-232014.png",
+          "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png",
+          "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Polished Gold-Tone Bit Ornament",
+    "style": "Horsebit Loafer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-046",
+    "name": "Bella Women's Comfort Slip-On Flat",
+    "slug": "bella-women-s-comfort-slip-on-flat",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 1899,
+    "salePrice": 1399,
+    "discountPercentage": 26,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Bella Women's Comfort Slip-On Flat from ITALIA SHOES. Engineered with flexible rubber outsole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Slip-On Flat with Flexible Rubber Outsole and high-durability cushioned sole.",
+    "sku": "IS-WOM-046",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png",
+    "images": [
+      "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png",
+      "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png",
+      "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 19,
+      "5": 24,
+      "6": 11,
+      "7": 16,
+      "8": 21
+    },
+    "stock": 91,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/XJ7L0cfR/Screenshot-2026-09-21-232019.png",
+          "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png",
+          "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png"
+        ],
+        "sizes": {
+          "4": 19,
+          "5": 24,
+          "6": 11,
+          "7": 16,
+          "8": 21
+        }
+      }
+    ],
+    "material": "Flexible Rubber Outsole",
+    "style": "Slip-On Flat",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-047",
+    "name": "HyperSpeed Carbon Plate Racer",
+    "slug": "hyperspeed-carbon-plate-racer",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3699,
+    "salePrice": 2899,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the HyperSpeed Carbon Plate Racer from ITALIA SHOES. Engineered with engineered propulsion curve and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Racing Sneaker with Engineered Propulsion Curve and high-durability cushioned sole.",
+    "sku": "IS-SPO-047",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png",
+    "images": [
+      "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png",
+      "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png",
+      "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/V6LgcBqV/Screenshot-2026-09-21-232022.png",
+          "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png",
+          "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
+    ],
+    "material": "Engineered Propulsion Curve",
+    "style": "Racing Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-048",
+    "name": "Amalfi Coast Cork-Bed Sandal",
+    "slug": "amalfi-coast-cork-bed-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Unisex",
+    "price": 1799,
+    "salePrice": 1299,
+    "discountPercentage": 28,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Amalfi Coast Cork-Bed Sandal from ITALIA SHOES. Engineered with anatomic molded footbed and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Cork Footbed Sandal with Anatomic Molded Footbed and high-durability cushioned sole.",
+    "sku": "IS-SAN-048",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png",
+    "images": [
+      "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png",
+      "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png",
+      "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 25,
+      "7": 12,
+      "8": 17,
+      "9": 22,
+      "10": 27,
+      "11": 14
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/TwY0Xqj8/Screenshot-2026-09-21-232029.png",
+          "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png",
+          "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      }
+    ],
+    "material": "Anatomic Molded Footbed",
+    "style": "Cork Footbed Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-049",
+    "name": "Nova Glide Reflective Runner",
+    "slug": "nova-glide-reflective-runner",
+    "brand": "ITALIA SHOES",
+    "category": "New Arrivals",
+    "gender": "Unisex",
+    "price": 2799,
+    "salePrice": 2199,
+    "discountPercentage": 21,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Nova Glide Reflective Runner from ITALIA SHOES. Engineered with 3m reflective accents & knit and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Night Runner with 3M Reflective Accents & Knit and high-durability cushioned sole.",
+    "sku": "IS-NEW-049",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png",
+    "images": [
+      "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png",
+      "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png",
+      "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/DZy6KdQ3/Screenshot-2026-09-21-232034.png",
+          "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png",
+          "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "3M Reflective Accents & Knit",
+    "style": "Night Runner",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": true,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-050",
+    "name": "Como Casual Knit Slip-On Trainer",
+    "slug": "como-casual-knit-slip-on-trainer",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2199,
+    "salePrice": 1699,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Como Casual Knit Slip-On Trainer from ITALIA SHOES. Engineered with breathable sock-liner knit and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Slip-On Sneaker with Breathable Sock-Liner Knit and high-durability cushioned sole.",
+    "sku": "IS-CAS-050",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png",
+    "images": [
+      "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png",
+      "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png",
+      "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/hjPsqb8B/Screenshot-2026-09-21-232042.png",
+          "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png",
+          "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Breathable Sock-Liner Knit",
+    "style": "Slip-On Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-051",
+    "name": "Diva Women's Cushion Active Sneaker",
+    "slug": "diva-women-s-cushion-active-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2299,
+    "salePrice": 1749,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Diva Women's Cushion Active Sneaker from ITALIA SHOES. Engineered with memory foam insole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Active Sneaker with Memory Foam Insole and high-durability cushioned sole.",
+    "sku": "IS-WOM-051",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png",
+    "images": [
+      "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png",
+      "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png",
+      "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 16,
+      "5": 21,
+      "6": 26,
+      "7": 13,
+      "8": 18
+    },
+    "stock": 94,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/B6YgZLpw/Screenshot-2026-09-21-232045.png",
+          "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png"
+        ],
+        "sizes": {
+          "4": 16,
+          "5": 21,
+          "6": 26,
+          "7": 13,
+          "8": 18
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png",
+          "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png"
+        ],
+        "sizes": {
+          "4": 16,
+          "5": 21,
+          "6": 26,
+          "7": 13,
+          "8": 18
+        }
+      }
+    ],
+    "material": "Memory Foam Insole",
+    "style": "Active Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-052",
+    "name": "Titan Grip Rugged Trail Shoe",
+    "slug": "titan-grip-rugged-trail-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 3399,
+    "salePrice": 2599,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Titan Grip Rugged Trail Shoe from ITALIA SHOES. Engineered with reinforced toe bumper & cleated sole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Trail Shoe with Reinforced Toe Bumper & Cleated Sole and high-durability cushioned sole.",
+    "sku": "IS-SPO-052",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png",
+    "images": [
+      "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png",
+      "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png",
+      "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/1tCHRnBd/Screenshot-2026-09-21-232050.png",
+          "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png",
+          "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
+    ],
+    "material": "Reinforced Toe Bumper & Cleated Sole",
+    "style": "Trail Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-053",
+    "name": "Bari Formal Plain Toe Derby",
+    "slug": "bari-formal-plain-toe-derby",
+    "brand": "ITALIA SHOES",
+    "category": "Offers",
+    "gender": "Men",
+    "price": 2799,
+    "salePrice": 1899,
+    "discountPercentage": 32,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Bari Formal Plain Toe Derby from ITALIA SHOES. Engineered with classic dress finish and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Plain Derby with Classic Dress Finish and high-durability cushioned sole.",
+    "sku": "IS-OFF-053",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png",
+    "images": [
+      "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png",
+      "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png",
+      "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 22,
+      "7": 27,
+      "8": 14,
+      "9": 19,
+      "10": 24,
+      "11": 11
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/9M8pXRbv/Screenshot-2026-09-21-232054.png",
+          "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png",
+          "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png"
+        ],
+        "sizes": {
+          "6": 22,
+          "7": 27,
+          "8": 14,
+          "9": 19,
+          "10": 24,
+          "11": 11
+        }
+      }
+    ],
+    "material": "Classic Dress Finish",
+    "style": "Plain Derby",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": true,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-054",
+    "name": "BreezeWalk Women's Daily Loafer",
+    "slug": "breezewalk-women-s-daily-loafer",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 1999,
+    "salePrice": 1499,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the BreezeWalk Women's Daily Loafer from ITALIA SHOES. Engineered with padded arch & soft lining and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Comfort Loafer with Padded Arch & Soft Lining and high-durability cushioned sole.",
+    "sku": "IS-WOM-054",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png",
+    "images": [
+      "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png",
+      "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png",
+      "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 25,
+      "5": 12,
+      "6": 17,
+      "7": 22,
+      "8": 27
+    },
+    "stock": 103,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/G27Q38KN/Screenshot-2026-09-21-232100.png",
+          "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png"
+        ],
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png",
+          "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png"
+        ],
+        "sizes": {
+          "4": 25,
+          "5": 12,
+          "6": 17,
+          "7": 22,
+          "8": 27
+        }
+      }
+    ],
+    "material": "Padded Arch & Soft Lining",
+    "style": "Comfort Loafer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-055",
+    "name": "Cruiser All-Weather Sport Sandal",
+    "slug": "cruiser-all-weather-sport-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1699,
+    "salePrice": 1249,
+    "discountPercentage": 26,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Cruiser All-Weather Sport Sandal from ITALIA SHOES. Engineered with water-repellent webbing and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Sport Sandal with Water-Repellent Webbing and high-durability cushioned sole.",
+    "sku": "IS-SAN-055",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png",
+    "images": [
+      "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png",
+      "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png",
+      "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/HxZ2Wczq/Screenshot-2026-09-21-232105.png",
+          "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png",
+          "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "Water-Repellent Webbing",
+    "style": "Sport Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-056",
+    "name": "Metro Minimalist Low-Top Sneaker",
+    "slug": "metro-minimalist-low-top-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2299,
+    "salePrice": 1799,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Metro Minimalist Low-Top Sneaker from ITALIA SHOES. Engineered with clean stitched panel lines and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Low-Top with Clean Stitched Panel Lines and high-durability cushioned sole.",
+    "sku": "IS-CAS-056",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png",
+    "images": [
+      "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png",
+      "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png",
+      "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/LXCT4YvK/Screenshot-2026-09-21-232110.png",
+          "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png",
+          "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Clean Stitched Panel Lines",
+    "style": "Low-Top",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": false,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-057",
+    "name": "Dynamo Cushion Sprint Sneaker",
+    "slug": "dynamo-cushion-sprint-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Men",
+    "price": 2999,
+    "salePrice": 2299,
+    "discountPercentage": 23,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Dynamo Cushion Sprint Sneaker from ITALIA SHOES. Engineered with impact-absorbing heel air cell and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Sprint Sneaker with Impact-Absorbing Heel Air Cell and high-durability cushioned sole.",
+    "sku": "IS-SPO-057",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png",
+    "images": [
+      "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png",
+      "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png",
+      "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/W3WnpFSc/Screenshot-2026-09-21-232115.png",
+          "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png",
+          "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Impact-Absorbing Heel Air Cell",
+    "style": "Sprint Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-058",
+    "name": "Milano Executive Oxford Shoe",
+    "slug": "milano-executive-oxford-shoe",
+    "brand": "ITALIA SHOES",
+    "category": "Offers",
+    "gender": "Men",
+    "price": 2999,
+    "salePrice": 1999,
+    "discountPercentage": 33,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Milano Executive Oxford Shoe from ITALIA SHOES. Engineered with premium laced dress upper and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Oxford Shoe with Premium Laced Dress Upper and high-durability cushioned sole.",
+    "sku": "IS-OFF-058",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png",
+    "images": [
+      "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png",
+      "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png",
+      "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/DZjgfJ5T/Screenshot-2026-09-21-232118.png",
+          "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png",
+          "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
+    ],
+    "material": "Premium Laced Dress Upper",
+    "style": "Oxford Shoe",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-059",
+    "name": "Stella Women's Pastel Active Sneaker",
+    "slug": "stella-women-s-pastel-active-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Women",
+    "gender": "Women",
+    "price": 2399,
+    "salePrice": 1799,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Stella Women's Pastel Active Sneaker from ITALIA SHOES. Engineered with soft-touch breathable mesh and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Fashion Trainer with Soft-Touch Breathable Mesh and high-durability cushioned sole.",
+    "sku": "IS-WOM-059",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png",
+    "images": [
+      "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png",
+      "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png",
+      "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "sizeStock": {
+      "4": 22,
+      "5": 27,
+      "6": 14,
+      "7": 19,
+      "8": 24
+    },
+    "stock": 106,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/MTPDZMtw/Screenshot-2026-09-21-232132.png",
+          "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png"
+        ],
+        "sizes": {
+          "4": 22,
+          "5": 27,
+          "6": 14,
+          "7": 19,
+          "8": 24
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png",
+          "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png"
+        ],
+        "sizes": {
+          "4": 22,
+          "5": 27,
+          "6": 14,
+          "7": 19,
+          "8": 24
+        }
+      }
+    ],
+    "material": "Soft-Touch Breathable Mesh",
+    "style": "Fashion Trainer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-060",
+    "name": "Coastline Comfort Fisherman Sandal",
+    "slug": "coastline-comfort-fisherman-sandal",
+    "brand": "ITALIA SHOES",
+    "category": "Sandals",
+    "gender": "Men",
+    "price": 1899,
+    "salePrice": 1399,
+    "discountPercentage": 26,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Coastline Comfort Fisherman Sandal from ITALIA SHOES. Engineered with enclosed toe protection and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Fisherman Sandal with Enclosed Toe Protection and high-durability cushioned sole.",
+    "sku": "IS-SAN-060",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png",
+    "images": [
+      "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png",
+      "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png",
+      "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 25,
+      "7": 12,
+      "8": 17,
+      "9": 22,
+      "10": 27,
+      "11": 14
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/LXCT4YvH/Screenshot-2026-09-21-232138.png",
+          "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png",
+          "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png"
+        ],
+        "sizes": {
+          "6": 25,
+          "7": 12,
+          "8": 17,
+          "9": 22,
+          "10": 27,
+          "11": 14
+        }
+      }
+    ],
+    "material": "Enclosed Toe Protection",
+    "style": "Fisherman Sandal",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-061",
+    "name": "Urban Rider Skate Low Sneaker",
+    "slug": "urban-rider-skate-low-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2499,
+    "salePrice": 1899,
+    "discountPercentage": 24,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Urban Rider Skate Low Sneaker from ITALIA SHOES. Engineered with reinforced heel & cupsole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Skate Low with Reinforced Heel & Cupsole and high-durability cushioned sole.",
+    "sku": "IS-CAS-061",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png",
+    "images": [
+      "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png",
+      "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png",
+      "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 10,
+      "7": 15,
+      "8": 20,
+      "9": 25,
+      "10": 12,
+      "11": 17
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/V6GRsr4s/Screenshot-2026-09-21-232141.png",
+          "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png",
+          "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png"
+        ],
+        "sizes": {
+          "6": 10,
+          "7": 15,
+          "8": 20,
+          "9": 25,
+          "10": 12,
+          "11": 17
+        }
+      }
+    ],
+    "material": "Reinforced Heel & Cupsole",
+    "style": "Skate Low",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": true,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-062",
+    "name": "SpeedCraft Pro Gym Sneaker",
+    "slug": "speedcraft-pro-gym-sneaker",
+    "brand": "ITALIA SHOES",
+    "category": "Sports",
+    "gender": "Unisex",
+    "price": 3199,
+    "salePrice": 2499,
+    "discountPercentage": 22,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the SpeedCraft Pro Gym Sneaker from ITALIA SHOES. Engineered with lateral stability cage and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Gym Trainer with Lateral Stability Cage and high-durability cushioned sole.",
+    "sku": "IS-SPO-062",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png",
+    "images": [
+      "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png",
+      "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png",
+      "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png"
+    ],
+    "colors": [
+      "Classic Black",
+      "Rich Tan",
+      "Coffee Brown"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 13,
+      "7": 18,
+      "8": 23,
+      "9": 10,
+      "10": 15,
+      "11": 20
+    },
+    "stock": 99,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Classic Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/4dL547wN/Screenshot-2026-09-21-232151.png",
+          "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      },
+      {
+        "color": "Rich Tan",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png",
+          "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png"
+        ],
+        "sizes": {
+          "6": 13,
+          "7": 18,
+          "8": 23,
+          "9": 10,
+          "10": 15,
+          "11": 20
+        }
+      }
+    ],
+    "material": "Lateral Stability Cage",
+    "style": "Gym Trainer",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-063",
+    "name": "Primo Casual Slip-On Moccasin",
+    "slug": "primo-casual-slip-on-moccasin",
+    "brand": "ITALIA SHOES",
+    "category": "Casual",
+    "gender": "Men",
+    "price": 2399,
+    "salePrice": 1799,
+    "discountPercentage": 25,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Primo Casual Slip-On Moccasin from ITALIA SHOES. Engineered with padded collar & flex sole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Casual Moccasin with Padded Collar & Flex Sole and high-durability cushioned sole.",
+    "sku": "IS-CAS-063",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png",
+    "images": [
+      "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png",
+      "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png",
+      "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png"
+    ],
+    "colors": [
+      "Triple Black",
+      "Crisp White",
+      "Olive Green"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 16,
+      "7": 21,
+      "8": 26,
+      "9": 13,
+      "10": 18,
+      "11": 23
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Triple Black",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/C1PNMBJK/Screenshot-2026-09-21-232154.png",
+          "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      },
+      {
+        "color": "Crisp White",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png",
+          "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png"
+        ],
+        "sizes": {
+          "6": 16,
+          "7": 21,
+          "8": 26,
+          "9": 13,
+          "10": 18,
+          "11": 23
+        }
+      }
+    ],
+    "material": "Padded Collar & Flex Sole",
+    "style": "Casual Moccasin",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": false,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": true,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  },
+  {
+    "id": "prod-is-064",
+    "name": "Heritage Italia Signature Edition",
+    "slug": "heritage-italia-signature-edition",
+    "brand": "ITALIA SHOES",
+    "category": "New Arrivals",
+    "gender": "Unisex",
+    "price": 3499,
+    "salePrice": 2799,
+    "discountPercentage": 20,
+    "description": "Experience exceptional comfort and authentic craftsmanship with the Heritage Italia Signature Edition from ITALIA SHOES. Engineered with handcrafted detail & italia insole and an ergonomic sole profile for all-day cushioning, durable grip, and versatile styling.",
+    "shortDescription": "Signature Sneaker with Handcrafted Detail & Italia Insole and high-durability cushioned sole.",
+    "sku": "IS-NEW-064",
+    "currency": "INR",
+    "thumbnail": "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png",
+    "images": [
+      "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png",
+      "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png",
+      "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png"
+    ],
+    "colors": [
+      "Black / White",
+      "Navy Blue",
+      "Charcoal Grey"
+    ],
+    "sizes": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "sizeStock": {
+      "6": 19,
+      "7": 24,
+      "8": 11,
+      "9": 16,
+      "10": 21,
+      "11": 26
+    },
+    "stock": 117,
+    "sizeSystem": "India",
+    "variants": [
+      {
+        "color": "Black / White",
+        "colorCode": "#111111",
+        "images": [
+          "https://i.postimg.cc/SsTrQ2Vj/Screenshot-2026-09-21-232201.png",
+          "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      },
+      {
+        "color": "Navy Blue",
+        "colorCode": "#2b2b2b",
+        "images": [
+          "https://i.postimg.cc/RVjgntmt/Screenshot-2026-09-21-231639.png",
+          "https://i.postimg.cc/RVjgntm7/Screenshot-2026-09-21-231644.png"
+        ],
+        "sizes": {
+          "6": 19,
+          "7": 24,
+          "8": 11,
+          "9": 16,
+          "10": 21,
+          "11": 26
+        }
+      }
+    ],
+    "material": "Handcrafted Detail & Italia Insole",
+    "style": "Signature Sneaker",
+    "features": [
+      "Engineered for daily Indian climate & prolonged foot comfort",
+      "Ergonomic arch support with shock-absorbing midsole",
+      "Non-slip high-traction rubber outsole",
+      "Reinforced stitching and durable heel counter"
+    ],
+    "featured": true,
+    "newArrival": true,
+    "bestSeller": false,
+    "offer": false,
+    "status": "active",
+    "createdAt": "2026-03-01T10:00:00Z",
+    "updatedAt": "2026-09-21T18:00:00Z"
+  }
 ];
